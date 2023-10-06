@@ -10,6 +10,12 @@ const HomePage = () => {
       </section>
 
       <section>
+        <Link to="/items">
+          <h1>Items</h1>
+        </Link>
+      </section>
+
+      <section>
         <Link to="/builds">
           <h1>Builds</h1>
         </Link>

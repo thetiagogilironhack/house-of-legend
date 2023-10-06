@@ -28,7 +28,7 @@ const ChampionsPage = () => {
             <li key={oneChampion.key}>
               <Link to={`/champions/${oneChampion.id}`}>
                 <img
-                  src={`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${oneChampion.name}_0.jpg`}
+                  src={`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${oneChampion.id}_0.jpg`}
                 />
                 <p>{oneChampion.name}</p>
               </Link>

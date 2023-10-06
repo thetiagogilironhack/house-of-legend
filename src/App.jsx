@@ -3,6 +3,7 @@ import "./App.css";
 import HomePage from "./pages/HomePage";
 import ChampionsPage from "./pages/ChampionsPage";
 import ChampionDetailsPage from "./pages/ChampionDetailsPage";
+import ItemsPage from "./pages/ItemsPage";
 import MyBuildsPage from "./pages/MyBuildsPage";
 import AddNewBuildPage from "./pages/AddNewBuildPage";
 import NavBar from "./components/NavBar";
@@ -20,6 +21,7 @@ function App() {
           path="/champions/:championId"
           element={<ChampionDetailsPage />}
         />
+        <Route path="/items" element={<ItemsPage />} />
         <Route path="/builds" element={<MyBuildsPage />} />
         <Route path="/builds/addNewBuild" element={<AddNewBuildPage />} />
       </Routes>

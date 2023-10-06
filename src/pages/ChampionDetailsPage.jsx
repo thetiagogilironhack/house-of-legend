@@ -26,7 +26,7 @@ const ChampionDetailsPage = () => {
       <section>
         <h1>Champion Details</h1>
         <img
-          src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}_0.jpg`}
+          src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`}
           alt={champion.name + " Image"}
         />
         <p>{champion.name}</p>
