@@ -8,6 +8,12 @@ const HomePage = () => {
           <h1>Champions</h1>
         </Link>
       </section>
+
+      <section>
+        <Link to="/builds">
+          <h1>Builds</h1>
+        </Link>
+      </section>
     </>
   );
 };

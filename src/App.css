@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+}
+
+.navbar {
+  background-color: lightblue;
+  padding: 0;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+    background-color: lightblue;
+    padding: 0;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+  }

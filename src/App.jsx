@@ -20,8 +20,8 @@ function App() {
           path="/champions/:championId"
           element={<ChampionDetailsPage />}
         />
-        <Route path="/myBuilds" element={<MyBuildsPage />} />
-        <Route path="/myBuilds/addNewBuild" element={<AddNewBuildPage />} />
+        <Route path="/builds" element={<MyBuildsPage />} />
+        <Route path="/builds/addNewBuild" element={<AddNewBuildPage />} />
       </Routes>
 
       <Footer />

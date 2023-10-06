@@ -7,7 +7,7 @@ const ChampionDetailsPage = () => {
 
   const fetchChampion = async () => {
     const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/projects/${championId}`
+      `${import.meta.env.VITE_API_URL}/champions/${championId}`
     );
     if (response.ok) {
       const championInfo = await response.json();
@@ -25,11 +25,14 @@ const ChampionDetailsPage = () => {
       {/* CHAMPION DETAILS */}
       <section>
         <h1>Champion Details</h1>
+        <img
+          src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}_0.jpg`}
+          alt={champion.name + " Image"}
+        />
         <p>{champion.name}</p>
         <p>{champion.title}</p>
         <p>{champion.description}</p>
         <p>{champion.tags}</p>
-        <img src={champion.image} alt={champion.name} />
       </section>
 
       {/* SKINS */}
