@@ -1,7 +1,13 @@
+import { Link } from "react-router-dom";
+
 const HomePage = () => {
   return (
     <>
-      <h1>Home Page</h1>
+      <section>
+        <Link to="/champions">
+          <h1>Champions</h1>
+        </Link>
+      </section>
     </>
   );
 };
