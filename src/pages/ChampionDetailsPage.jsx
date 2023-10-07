@@ -21,15 +21,16 @@ const ChampionDetailsPage = () => {
   }, [championId]);
 
   return (
-    <>
+    <div className="container">
+      <h1>Champion Details</h1>
+
       {/* CHAMPION DETAILS */}
       <section>
-        <h1>Champion Details</h1>
         <img
           src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`}
           alt={champion.name + " Image"}
         />
-        <p>{champion.name}</p>
+        <p>Name: {champion.name}</p>
         <p>{champion.title}</p>
         <p>{champion.description}</p>
         <p>{champion.tags}</p>
@@ -39,7 +40,7 @@ const ChampionDetailsPage = () => {
       <section>
         <p>{champion.image}</p>
       </section>
-    </>
+    </div>
   );
 };
 

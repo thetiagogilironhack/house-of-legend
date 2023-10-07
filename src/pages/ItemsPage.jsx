@@ -17,24 +17,30 @@ const ItemsPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <h1>Items List</h1>
 
       {/* LIST OF CHAMPIONS */}
-      <ul>
+      <ul className="items-list">
         {items.map((oneItem) => {
           return (
-            <li key={oneItem.image.full}>
-              <img
-                src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${oneItem.image.full}`}
-                alt={oneItem.name}
-              />
-              <p>{oneItem.name}</p>
+            <li key={oneItem.image.full} className="items-box">
+              <section>
+                <img
+                  src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${oneItem.image.full}`}
+                  alt={oneItem.name}
+                />
+              </section>
+
+              <section>
+                <p>Name: {oneItem.name}</p>
+                <p>Price: {oneItem.gold.total}g</p>
+              </section>
             </li>
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };
 

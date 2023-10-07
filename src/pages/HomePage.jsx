@@ -2,25 +2,25 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="container">
       <section>
-        <Link to="/champions">
-          <h1>Champions</h1>
+        <Link to="/champions" className="home-page-section" id="champions">
+          <h1>CHAMPIONS</h1>
         </Link>
       </section>
 
       <section>
-        <Link to="/items">
-          <h1>Items</h1>
+        <Link to="/items" className="home-page-section" id="items">
+          <h1>ITEMS</h1>
         </Link>
       </section>
 
       <section>
-        <Link to="/builds">
-          <h1>Builds</h1>
+        <Link to="/builds" className="home-page-section" id="builds">
+          <h1>BUILDS</h1>
         </Link>
       </section>
-    </>
+    </div>
   );
 };
 

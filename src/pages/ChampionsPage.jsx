@@ -18,11 +18,11 @@ const ChampionsPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="container" >
       <h1>Champions List</h1>
 
       {/* LIST OF CHAMPIONS */}
-      <ul>
+      <ul className="champions-list">
         {champions.map((oneChampion) => {
           return (
             <li key={oneChampion.key}>
@@ -36,7 +36,7 @@ const ChampionsPage = () => {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };
 
