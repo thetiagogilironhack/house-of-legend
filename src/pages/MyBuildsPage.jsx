@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DeleteBuild from "../components/DeleteBuild";
+import ShowMoreButton from "../components/ShowMoreButton";
 
 const MyBuildsPage = () => {
   const [builds, setBuilds] = useState([]);
-  const [showMore, setShowMore] = useState(false);
 
   /* FETCH BUILDS */
   const fetchAllBuilds = async () => {
@@ -26,26 +26,18 @@ const MyBuildsPage = () => {
   const updateBuild = async (build, type, value) => {
     let newValue = value + 1;
 
-    const update = {
-      ...build,
-    };
-
     if (type === "win") {
-      update.win = newValue;
+      build.win = newValue;
     } else if (type === "loss") {
-      update.loss = newValue;
+      build.loss = newValue;
     }
-
-    console.log(update);
-
-    const body = JSON.stringify(update);
 
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/builds/${build.id}`,
         {
           method: "PUT",
-          body,
+          body: JSON.stringify(build),
           headers: {
             "Content-type": "application/json",
           },
@@ -68,17 +60,21 @@ const MyBuildsPage = () => {
         {builds.map((build) => {
           return (
             <li key={build.id} className="builds-list">
-              {showMore ? (
-                <>
-                  <p>{build.title}</p>
-                  <p>{build.champion}</p>
-                  <p>{build.item1}</p>
-                  <p>{build.item2}</p>
-                  <p>{build.item3}</p>
-                  <p>{build.item4}</p>
-                  <p>{build.item5}</p>
-                  <p>{build.item6}</p>
+              <p>{build.title}</p>
+              <p>{build.champion}</p>
+              <p>{build.item1}</p>
+              <p>{build.item2}</p>
+              <p>{build.item3}</p>
+              <p>{build.item4}</p>
+              <p>{build.item5}</p>
+              <p>{build.item6}</p>
 
+              <p>
+                <DeleteBuild build={build} fetchAll={fetchAllBuilds} />
+              </p>
+
+              <div>
+                <ShowMoreButton>
                   <div>
                     <p>{build.win} W</p>
                     <button
@@ -96,42 +92,8 @@ const MyBuildsPage = () => {
                       Loss
                     </button>
                   </div>
-
-                  <p>
-                    <button
-                      className="btn"
-                      onClick={() => setShowMore(!showMore)}
-                    >
-                      Show more
-                    </button>
-                  </p>
-                  <p>
-                    <DeleteBuild build={build} fetchAll={fetchAllBuilds} />
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p>{build.title}</p>
-                  <p>{build.champion}</p>
-                  <p>{build.item1}</p>
-                  <p>{build.item2}</p>
-                  <p>{build.item3}</p>
-                  <p>{build.item4}</p>
-                  <p>{build.item5}</p>
-                  <p>{build.item6}</p>
-                  <p>
-                    <button
-                      className="btn"
-                      onClick={() => setShowMore(!showMore)}
-                    >
-                      Show more
-                    </button>
-                  </p>
-                  <p>
-                    <DeleteBuild build={build} fetchAll={fetchAllBuilds} />
-                  </p>
-                </>
-              )}
+                </ShowMoreButton>
+              </div>
             </li>
           );
         })}
