@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family:"Calibri"
+  font-family: "Calibri";
 }
 
 a {
@@ -82,10 +82,13 @@ a {
   margin: 3rem;
   background-color: black;
   transition: background-color 0.5s;
+  box-shadow: 0 0 10px rgb(88, 88, 88);
 }
 
 .champions-list li:hover {
   background-color: rgba(30, 30, 30, 0.76);
+  transform: translateY(-5px);
+  box-shadow: 0 0 50px rgb(88, 88, 88);
 }
 
 .champions-list p {
@@ -94,7 +97,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .champions-list img {
@@ -102,7 +105,6 @@ a {
 }
 
 /* CHAMPIONS DETAILS PAGE */
-
 
 /* ITEMS PAGE */
 
@@ -132,7 +134,17 @@ a {
 }
 
 .items-box p {
-  color: black;
   margin: 0;
   padding: 0.5rem;
+}
+
+/* BUILDS PAGE */
+.builds-list {
+  display: flex;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.builds-list p {
+  padding-right: 20px;
 }

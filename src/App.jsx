@@ -5,7 +5,7 @@ import ChampionsPage from "./pages/ChampionsPage";
 import ChampionDetailsPage from "./pages/ChampionDetailsPage";
 import ItemsPage from "./pages/ItemsPage";
 import MyBuildsPage from "./pages/MyBuildsPage";
-import AddNewBuildPage from "./pages/AddNewBuildPage";
+import NewBuildPage from "./pages/NewBuildPage";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
@@ -23,7 +23,7 @@ function App() {
         />
         <Route path="/items" element={<ItemsPage />} />
         <Route path="/builds" element={<MyBuildsPage />} />
-        <Route path="/builds/addNewBuild" element={<AddNewBuildPage />} />
+        <Route path="/builds/new" element={<NewBuildPage />} />
       </Routes>
 
       <Footer />
