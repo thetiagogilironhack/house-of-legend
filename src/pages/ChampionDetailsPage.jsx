@@ -47,11 +47,11 @@ const ChampionDetailsPage = () => {
                 champion.tags.map((oneTag) => {
                   return (
                     <tr>
-                      <td key={oneTag}>{oneTag}</td>
+                      <td key={oneTag} className="table-tags">{oneTag}</td>
                     </tr>
                   );
                 })}
-              <td>{champion.blurb}</td>
+              <td className="table-description">{champion.blurb}</td>
             </tr>
           </tbody>
         </table>
