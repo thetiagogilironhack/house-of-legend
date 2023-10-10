@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ImageSlider from "../components/ImageSlider"
+import ImageSlider from "../components/ImageSlider";
 
 const ChampionDetailsPage = () => {
   const { championId } = useParams();
-  const [champion, setChampion] = useState("");
+  const [champion, setChampion] = useState({});
+  const skins = [];
+  console.log(skins)
 
   const fetchChampion = async () => {
     const response = await fetch(
@@ -38,7 +40,17 @@ const ChampionDetailsPage = () => {
 
       {/* SKINS */}
       <section>
-        <ImageSlider champion={champion.id} skins={champion.skins}/>
+        {champion.skins &&
+          champion.skins.map((oneSkin) => {
+            skins.push(
+              `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_${oneSkin}.jpg`
+            );
+            return <div key={oneSkin}></div>
+          })}
+          <div className="container-slides">
+            <ImageSlider championName={champion.id} skinsArray={skins}/>
+          </div>
+        
         <p>{champion.image}</p>
       </section>
     </div>
