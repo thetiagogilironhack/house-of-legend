@@ -1,4 +1,4 @@
-const DeleteBuild = ({ build, fetchAll }) => {
+const BuildDeleteButton = ({ build, fetchAll }) => {
   const handleDelete = async () => {
     try {
       const response = await fetch(
@@ -21,10 +21,10 @@ const DeleteBuild = ({ build, fetchAll }) => {
   };
 
   return (
-    <button type="button" onClick={handleDelete}>
-      Delete
+    <button type="button" onClick={handleDelete} className="builds-checkbox-button">
+      delete
     </button>
   );
 };
 
-export default DeleteBuild;
+export default BuildDeleteButton;

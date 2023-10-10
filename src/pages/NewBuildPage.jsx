@@ -6,12 +6,12 @@ const NewBuildPage = () => {
 
   const [title, setTitle] = useState("");
   const [champion, setChampion] = useState("");
-  const [item1, setItem1] = useState("");
-  const [item2, setItem2] = useState("");
-  const [item3, setItem3] = useState("");
-  const [item4, setItem4] = useState("");
-  const [item5, setItem5] = useState("");
-  const [item6, setItem6] = useState("");
+  const [item1, setItem1] = useState({ name: "", id: 0 });
+  const [item2, setItem2] = useState({ name: "", id: 0 });
+  const [item3, setItem3] = useState({ name: "", id: 0 });
+  const [item4, setItem4] = useState({ name: "", id: 0 });
+  const [item5, setItem5] = useState({ name: "", id: 0 });
+  const [item6, setItem6] = useState({ name: "", id: 0 });
   const [win] = useState(0);
   const [loss] = useState(0);
   const [champions, setChampions] = useState([]);
@@ -89,6 +89,7 @@ const NewBuildPage = () => {
             value={title}
             onChange={(event) => setTitle(event.target.value)}
             required
+            maxLength={15}
           />
         </label>
 
@@ -113,14 +114,22 @@ const NewBuildPage = () => {
         <label>
           Item 1
           <select
-            value={item1}
-            onChange={(event) => setItem1(event.target.value)}
+            value={item1.name}
+            onChange={(event) => {
+              const item = items.find(
+                (item) => item.name === event.target.value
+              );
+              setItem1({
+                name: item.name,
+                id: item.id,
+              });
+            }}
             required
           >
             <option value="">Select an item</option>
             {items.map((item) => {
               return (
-                <option value={item.name} key={item.image.full}>
+                <option value={item.name} key={item.id}>
                   {item.name}
                 </option>
               );
@@ -131,14 +140,22 @@ const NewBuildPage = () => {
         <label>
           Item 2
           <select
-            value={item2}
-            onChange={(event) => setItem2(event.target.value)}
+            value={item2.name}
+            onChange={(event) => {
+              const item = items.find(
+                (item) => item.name === event.target.value
+              );
+              setItem2({
+                name: item.name,
+                id: item.id,
+              });
+            }}
             required
           >
             <option value="">Select an item</option>
             {items.map((item) => {
               return (
-                <option value={item.name} key={item.image.full}>
+                <option value={item.name} key={item.id}>
                   {item.name}
                 </option>
               );
@@ -149,14 +166,22 @@ const NewBuildPage = () => {
         <label>
           Item 3
           <select
-            value={item3}
-            onChange={(event) => setItem3(event.target.value)}
+            value={item3.name}
+            onChange={(event) => {
+              const item = items.find(
+                (item) => item.name === event.target.value
+              );
+              setItem3({
+                name: item.name,
+                id: item.id,
+              });
+            }}
             required
           >
             <option value="">Select an item</option>
             {items.map((item) => {
               return (
-                <option value={item.name} key={item.image.full}>
+                <option value={item.name} key={item.id}>
                   {item.name}
                 </option>
               );
@@ -167,14 +192,22 @@ const NewBuildPage = () => {
         <label>
           Item 4
           <select
-            value={item4}
-            onChange={(event) => setItem4(event.target.value)}
+            value={item4.name}
+            onChange={(event) => {
+              const item = items.find(
+                (item) => item.name === event.target.value
+              );
+              setItem4({
+                name: item.name,
+                id: item.id,
+              });
+            }}
             required
           >
             <option value="">Select an item</option>
             {items.map((item) => {
               return (
-                <option value={item.name} key={item.image.full}>
+                <option value={item.name} key={item.id}>
                   {item.name}
                 </option>
               );
@@ -185,14 +218,22 @@ const NewBuildPage = () => {
         <label>
           Item 5
           <select
-            value={item5}
-            onChange={(event) => setItem5(event.target.value)}
+            value={item5.name}
+            onChange={(event) => {
+              const item = items.find(
+                (item) => item.name === event.target.value
+              );
+              setItem5({
+                name: item.name,
+                id: item.id,
+              });
+            }}
             required
           >
             <option value="">Select an item</option>
             {items.map((item) => {
               return (
-                <option value={item.name} key={item.image.full}>
+                <option value={item.name} key={item.id}>
                   {item.name}
                 </option>
               );
@@ -203,14 +244,22 @@ const NewBuildPage = () => {
         <label>
           Item 6
           <select
-            value={item6}
-            onChange={(event) => setItem6(event.target.value)}
+            value={item6.name}
+            onChange={(event) => {
+              const item = items.find(
+                (item) => item.name === event.target.value
+              );
+              setItem6({
+                name: item.name,
+                id: item.id,
+              });
+            }}
             required
           >
             <option value="">Select an item</option>
             {items.map((item) => {
               return (
-                <option value={item.name} key={item.image.full}>
+                <option value={item.name} key={item.id}>
                   {item.name}
                 </option>
               );

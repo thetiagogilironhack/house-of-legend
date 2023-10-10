@@ -1,10 +1,23 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: "Calibri";
 }
 
 a {
   text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 .container {
@@ -77,7 +90,6 @@ a {
 }
 
 .champions-list li {
-  list-style: none;
   width: 200px;
   margin: 3rem;
   background-color: black;
@@ -143,18 +155,73 @@ a {
   display: flex;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  margin-bottom: 2rem;
 }
 
-.builds-list p {
-  width: 10rem;
-  text-align: left;
+.builds-list section {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 .builds-list img {
-  width: 2rem;
+  width: 2.5rem;
+  margin: 1rem;
 }
 
 .builds-title {
-  margin-left: 2rem;
+  width: 10rem;
+  padding-left: 2rem;
   font-weight: bold;
+  margin-right: 2rem;
+}
+
+.builds-champion {
+  width: 9rem;
+  padding-left: 2rem;
+  margin-right: 2rem;
+}
+
+.builds-items {
+  width: 10rem;
+}
+
+.builds-ratio {
+  width: 4rem;
+  color:
+}
+
+.builds-delete {
+  margin: 1rem;
+}
+
+.builds-checkbox {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  display: none;
+}
+
+.builds-checkbox p {
+  width: 3rem;
+  margin-right: 0.5rem;
+}
+
+#ch {
+  display: none;
+}
+
+#ch:checked ~ .builds-checkbox {
+  display: block;
+}
+
+.builds-checkbox-button {
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(110, 84, 16);
+  border: none;
+  border-radius: 3px;
+  padding: 2px 5px 2px 5px;
+  margin-right: 1rem;
 }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import DeleteBuild from "../components/DeleteBuild";
-import ShowMoreButton from "../components/ShowMoreButton";
+import BuildDisplay from "../components/BuildDisplay";
 
 const MyBuildsPage = () => {
   const [builds, setBuilds] = useState([]);
@@ -56,64 +55,20 @@ const MyBuildsPage = () => {
     <div className="container">
       <h1>My Builds</h1>
 
-      <ul>
-        {builds.map((build) => {
-          return (
-            <li key={build.id} className="builds-list">
-              <p className="builds-title">{build.title}</p>
-              <p>
-                <img
-                  src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${build.champion}_0.jpg`}
-                  alt={"Champion IMG"}
-                />
-                {build.champion}
-              </p>
-              <p>
-                <img
-                  src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${build.item1.image}`}
-                  alt={"Item IMG"}
-                />
-                {build.item1}
-              </p>
-              <p>{build.item2}</p>
-              <p>{build.item3}</p>
-              <p>{build.item4}</p>
-              <p>{build.item5}</p>
-              <p>{build.item6}</p>
-
-              <p>
-                <DeleteBuild build={build} fetchAll={fetchAllBuilds} />
-              </p>
-
-              <div>
-                <ShowMoreButton>
-                  <div>
-                    <p>{build.win} W</p>
-                    <button
-                      onClick={() => updateBuild(build, "win", build.win)}
-                    >
-                      Win
-                    </button>
-                  </div>
-
-                  <div>
-                    <p>{build.loss} L</p>
-                    <button
-                      onClick={() => updateBuild(build, "loss", build.loss)}
-                    >
-                      Loss
-                    </button>
-                  </div>
-                </ShowMoreButton>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-
       <Link to="/builds/new">
         <button>New Build</button>
       </Link>
+
+      <ul>
+        {builds.map((build) => (
+          <BuildDisplay
+            key={build.id}
+            build={build}
+            fetchAllBuilds={fetchAllBuilds}
+            updateBuild={updateBuild}
+          />
+        ))}
+      </ul>
     </div>
   );
 };
