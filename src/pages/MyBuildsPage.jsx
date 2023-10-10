@@ -56,10 +56,10 @@ const MyBuildsPage = () => {
       <h1>My Builds</h1>
 
       <Link to="/builds/new">
-        <button>New Build</button>
+        <button className="build-new-button">New Build</button>
       </Link>
 
-      <ul>
+      <div>
         {builds.map((build) => (
           <BuildDisplay
             key={build.id}
@@ -68,7 +68,7 @@ const MyBuildsPage = () => {
             updateBuild={updateBuild}
           />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

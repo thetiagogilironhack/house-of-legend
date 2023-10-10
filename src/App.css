@@ -151,72 +151,68 @@ button {
 }
 
 /* BUILDS PAGE */
-.builds-list {
+.build-new-button {
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(110, 84, 16);
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 2rem 0 2rem;
+  transition-duration: 0.3s;
+}
+
+.build-new-button:hover {
+  background-color: rgba(110, 83, 16, 0.473)
+}
+
+.build-box {
   display: flex;
+  flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin-bottom: 2rem;
 }
 
-.builds-list section {
+.build-main-div {
+  display: flex;
+}
+
+.build-main-div section {
   display: flex;
   justify-content: left;
   align-items: center;
 }
 
-.builds-list img {
+.build-main-div img {
   width: 2.5rem;
   margin: 1rem;
 }
 
-.builds-title {
+.build-title {
   width: 10rem;
   padding-left: 2rem;
   font-weight: bold;
   margin-right: 2rem;
 }
 
-.builds-champion {
+.build-champion {
   width: 9rem;
   padding-left: 2rem;
   margin-right: 2rem;
 }
 
-.builds-items {
-  width: 10rem;
+.build-items {
+  width: 11rem;
 }
 
-.builds-ratio {
-  width: 4rem;
-  color:
+.build-ratio {
+  width: 5rem;
+  margin-left: 1rem;
 }
 
-.builds-delete {
-  margin: 1rem;
-}
-
-.builds-checkbox {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  display: none;
-}
-
-.builds-checkbox p {
-  width: 3rem;
-  margin-right: 0.5rem;
-}
-
-#ch {
-  display: none;
-}
-
-#ch:checked ~ .builds-checkbox {
-  display: block;
-}
-
-.builds-checkbox-button {
-  display: inline-block;
+.build-main-div button {
   cursor: pointer;
   color: white;
   background-color: rgb(110, 84, 16);
@@ -224,4 +220,48 @@ button {
   border-radius: 3px;
   padding: 2px 5px 2px 5px;
   margin-right: 1rem;
+  transition-duration: 0.3s;
+}
+
+.build-main-div button:hover {
+  background-color: rgba(110, 83, 16, 0.473)
+}
+
+.build-delete {
+  margin: 1rem;
+}
+
+.build-checkbox button {
+  width: 1.2rem;
+}
+
+.build-hidden-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0 1rem 0;
+}
+
+.build-hidden-checkbox {
+  display: flex;
+  justify-content: center;
+  width: 7rem;
+}
+
+.build-hidden-checkbox p {
+  width: 4rem;
+}
+
+.build-hidden-checkbox button {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(110, 84, 16);
+  border: none;
+  border-radius: 3px;
+  padding: 2px 5px 2px 5px;
+  transition-duration: 0.3s;
+}
+
+.build-hidden-checkbox button:hover {
+  background-color: rgba(110, 83, 16, 0.473)
 }
