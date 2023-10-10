@@ -6,7 +6,7 @@ const ChampionDetailsPage = () => {
   const { championId } = useParams();
   const [champion, setChampion] = useState({});
   const skins = [];
-  console.log(skins)
+  console.log(skins);
 
   const fetchChampion = async () => {
     const response = await fetch(
@@ -24,35 +24,47 @@ const ChampionDetailsPage = () => {
   }, [championId]);
 
   return (
-    <div className="container">
-      <h1>Champion Details</h1>
+    <div className="main-container">
       {/* CHAMPION DETAILS */}
-      <section>
-        <img
-          src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`}
-          alt={champion.name + " Image"}
-        />
-        <p>Name: {champion.name}</p>
-        <p>{champion.title}</p>
-        <p>{champion.description}</p>
-        <p>{champion.tags}</p>
+
+      <section className="container-slides">
+        <ImageSlider championName={champion.id} skinsArray={skins} />
+      </section>
+
+      <section className="champion-info">
+        <h1>{champion.name + "   "}</h1>
+        <p className="title">{champion.title}</p>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {champion.tags &&
+                champion.tags.map((oneTag) => {
+                  return (
+                    <tr>
+                      <td key={oneTag}>{oneTag}</td>
+                    </tr>
+                  );
+                })}
+              <td>{champion.blurb}</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       {/* SKINS */}
-      <section>
-        {champion.skins &&
-          champion.skins.map((oneSkin) => {
-            skins.push(
-              `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_${oneSkin}.jpg`
-            );
-            return <div key={oneSkin}></div>
-          })}
-          <div className="container-slides">
-            <ImageSlider championName={champion.id} skinsArray={skins}/>
-          </div>
-        
-        <p>{champion.image}</p>
-      </section>
+      {champion.skins &&
+        champion.skins.map((oneSkin) => {
+          skins.push(
+            `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_${oneSkin}.jpg`
+          );
+          return <div key={oneSkin}></div>;
+        })}
     </div>
   );
 };
