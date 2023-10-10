@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ImageSlider from "../components/ImageSlider"
 
 const ChampionDetailsPage = () => {
   const { championId } = useParams();
@@ -23,7 +24,6 @@ const ChampionDetailsPage = () => {
   return (
     <div className="container">
       <h1>Champion Details</h1>
-
       {/* CHAMPION DETAILS */}
       <section>
         <img
@@ -38,6 +38,7 @@ const ChampionDetailsPage = () => {
 
       {/* SKINS */}
       <section>
+        <ImageSlider champion={champion.id} skins={champion.skins}/>
         <p>{champion.image}</p>
       </section>
     </div>
