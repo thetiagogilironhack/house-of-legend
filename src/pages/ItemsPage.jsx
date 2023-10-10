@@ -24,10 +24,10 @@ const ItemsPage = () => {
       <ul className="items-list">
         {items.map((oneItem) => {
           return (
-            <li key={oneItem.image.full} className="items-box">
+            <li key={oneItem.id} className="items-box">
               <section>
                 <img
-                  src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${oneItem.image.full}`}
+                  src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${oneItem.id}.png`}
                   alt={oneItem.name}
                 />
               </section>

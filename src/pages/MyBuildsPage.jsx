@@ -60,9 +60,21 @@ const MyBuildsPage = () => {
         {builds.map((build) => {
           return (
             <li key={build.id} className="builds-list">
-              <p>{build.title}</p>
-              <p>{build.champion}</p>
-              <p>{build.item1}</p>
+              <p className="builds-title">{build.title}</p>
+              <p>
+                <img
+                  src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${build.champion}_0.jpg`}
+                  alt={"Champion IMG"}
+                />
+                {build.champion}
+              </p>
+              <p>
+                <img
+                  src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${build.item1.image}`}
+                  alt={"Item IMG"}
+                />
+                {build.item1}
+              </p>
               <p>{build.item2}</p>
               <p>{build.item3}</p>
               <p>{build.item4}</p>

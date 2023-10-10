@@ -146,5 +146,15 @@ a {
 }
 
 .builds-list p {
-  padding-right: 20px;
+  width: 10rem;
+  text-align: left;
+}
+
+.builds-list img {
+  width: 2rem;
+}
+
+.builds-title {
+  margin-left: 2rem;
+  font-weight: bold;
 }
