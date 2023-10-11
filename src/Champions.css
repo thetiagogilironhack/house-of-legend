@@ -4,18 +4,36 @@
 
 .container-slides {
   width: 100%;
-  height: 780px;
+  height: 95vh;
   margin: 0 auto;
+}
+
+.slider::before {
+  content:"";
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  background: rgba(5,13,22,1);
+  mask-image: linear-gradient(to top, rgba(5,13,22,1) 3%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(5,13,22,1) 3%, transparent 100%);
+  backdrop-filter: blur(8px);
 }
 
 .slider {
   position: relative;
   height: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  
 }
+
 
 .one-slide {
   display: flex;
   justify-content: center;
+  align-content: center;
   border-radius: 10px;
   background-size: cover;
   background-position: center;
@@ -25,10 +43,9 @@
 }
 
 .slide-img {
-    width: 55%;
-    height: 55%;
+  width: 55%;
+  height: 55%;
 }
-
 
 .arrow-left img {
   position: absolute;
@@ -39,7 +56,7 @@
   color: #fff;
   z-index: 3;
   cursor: pointer;
-  filter: opacity(0%)
+  filter: opacity(0%);
 }
 
 .arrow-right img {
@@ -51,7 +68,7 @@
   color: #fff;
   z-index: 3;
   cursor: pointer;
-  filter: opacity(0%)
+  filter: opacity(0%);
 }
 
 .arrow-left img:hover,
@@ -59,20 +76,20 @@
   filter: opacity(100%);
 }
 
-.bg-image {
+/*.bg-image {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   z-index: 0;
   filter: blur(10px) opacity(20%);
-}
+}*/
 
 .dots-container {
   display: flex;
   justify-content: center;
   position: relative;
-  top:100px;
+  top: 10px;
   z-index: 3;
 }
 
@@ -81,45 +98,157 @@
   cursor: pointer;
   font-size: 20px;
   color: white;
-  filter: opacity(60%)
+  filter: opacity(50%);
 }
 
-
 /* CHAMPIONS INFO*/
+/*color for bar levels: bright #08d7f7 and dark #023240*/
 
 .champion-info {
-    margin: 0 auto;
-    width: 55%;
-    padding-bottom: 50px;
+  margin: 0 auto;
+  width: 55%;
+  margin-top: -130px;
+  padding-bottom: 50px;
 }
 
 .champion-info h1,
-p {
+.champion-info p {
   color: white;
 }
 
-.champion-info h1 {
-  font-size: 100px;
-  margin: 0px;
-  text-decoration: underline 2px;
-  text-underline-offset: 5px;
+.champion-header-border {
+  border: 1px solid white;
+  border-top: none;
+  position: relative;
+  margin-top: 140px;
 }
 
-.title {
-  font-size: 18px;
-  margin: 0px;
+.champion-header-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 70px;
 }
 
-table {
-    width: 100%;
+.champion-header-top-border-left {
+  border-top: 1px solid white;
+  width: 30%;
+  position: absolute;
+  left: 0;
 }
 
-table, td {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    color: white;
-    border: 1px solid
+.champion-header-top-border-right {
+  border-top: 1px solid white;
+  width: 30%;
+  position: absolute;
+  right: 0;
 }
 
+.champion-header-middle-border-name {
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  position: relative;
+  top: -100px;
+}
 
+.champion-title {
+  font-size: 32px;
+  top: -80px;
+}
 
+.champion-details {
+  display: flex;
+  margin: 0 40px 50px;
+}
+
+.champion-specifics {
+  display: flex;
+  width: 50%;
+}
+
+.champion-tags {
+  width: 50%;
+}
+
+.champion-stats {
+  width: 50%;
+  height: 200px;
+  position: relative;
+  margin: 0px auto;
+}
+
+.champion-description {
+  width: 50%;
+  padding-left: 60px;
+}
+
+.champion-details-divider {
+  width: 1px;
+  background-color: white;
+}
+
+.bar-level-container {
+  display: block;
+  width: 50px;
+  height: 15px;
+}
+
+.bar-level {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 0px 8% 0px 5%;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.first-level {
+  display: inline-block;
+  width: 30.6667%;
+  height: 100%;
+  padding-right: 6%;
+  opacity: 1;
+  background-clip: content-box;
+  transform: skewX(-40deg);
+}
+
+.second-level {
+  display: inline-block;
+  width: 30.6667%;
+  height: 100%;
+  padding-right: 5%;
+  opacity: 1;
+  background-clip: content-box;
+  transform: skewX(-40deg);
+}
+
+.third-level {
+  display: inline-block;
+  width: 30.6667%;
+  height: 100%;
+  padding-right: 5%;
+  opacity: 1;
+  background-clip: content-box;
+  transform: skewX(-40deg);
+}
+
+.forth-level {
+  display: inline-block;
+  width: 30.6667%;
+  height: 100%;
+  padding-right: 5%;
+  opacity: 1;
+  background-clip: content-box;
+  transform: skewX(-40deg);
+}
+
+.fifth-level {
+  display: inline-block;
+  width: 30.6667%;
+  height: 100%;
+  padding-right: 5%;
+  opacity: 1;
+  background-clip: content-box;
+  transform: skewX(-40deg);
+}
