@@ -193,8 +193,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 2rem;
-  margin-right: 2rem;
+  margin: 1rem 2rem 1rem 2rem;
 }
 
 .mybuilds-champion-main-div img {
