@@ -1,9 +1,23 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import BuildDisplay from "../components/BuildDisplay";
+import BoxDisplayChampion from "../components/builds/BoxDisplayChampion";
 
 const MyBuildsPage = () => {
   const [builds, setBuilds] = useState([]);
+  const [, setChampions] = useState([]);
+
+  /* FETCH CHAMPIONS */
+  const fetchAllChampions = async () => {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/champions`);
+    if (response.ok) {
+      const allChampions = await response.json();
+      setChampions(allChampions);
+    }
+  };
+
+  useEffect(() => {
+    fetchAllChampions();
+  }, []);
 
   /* FETCH BUILDS */
   const fetchAllBuilds = async () => {
@@ -11,7 +25,6 @@ const MyBuildsPage = () => {
     if (response.ok) {
       const allBuilds = await response.json();
       setBuilds(allBuilds);
-      console.log(allBuilds);
     }
   };
 
@@ -42,7 +55,6 @@ const MyBuildsPage = () => {
           },
         }
       );
-      console.log(response);
       if (response.ok) {
         await fetchAllBuilds();
       }
@@ -51,23 +63,50 @@ const MyBuildsPage = () => {
     }
   };
 
+  /* GROUP BUILDS BY CHAMPION */
+  const groupBuildsByChampion = (builds) => {
+    const buildsGroup = {};
+
+    for (let i = 0; i < builds.length; i += 1) {
+      const build = builds[i];
+      const champion = build.champion.name;
+
+      if (!buildsGroup[champion]) {
+        buildsGroup[champion] = [build];
+      } else {
+        buildsGroup[champion].push(build);
+      }
+    }
+
+    return buildsGroup;
+  };
+
+  const groupedBuilds = groupBuildsByChampion(builds);
+
   return (
     <div className="container">
       <h1>My Builds</h1>
 
       <Link to="/builds/new">
-        <button className="build-new-button">New Build</button>
+        <button className="mybuilds-new-button">New Build</button>
       </Link>
 
-      <div>
-        {builds.map((build) => (
-          <BuildDisplay
-            key={build.id}
-            build={build}
-            fetchAllBuilds={fetchAllBuilds}
-            updateBuild={updateBuild}
-          />
-        ))}
+      <div className="mybuilds-box">
+        {Object.keys(groupedBuilds)
+          .map((championName) => {
+            const array = groupedBuilds[championName];
+
+            return (
+              <BoxDisplayChampion
+                key={championName}
+                championName={championName}
+                array={array}
+                fetchAllBuilds={fetchAllBuilds}
+                updateBuild={updateBuild}
+              />
+            );
+          })
+          .sort()}
       </div>
     </div>
   );

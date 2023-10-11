@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 const NewBuildPage = () => {
   const navigate = useNavigate();
 
+  const [champions, setChampions] = useState([]);
+  const [items, setItems] = useState([]);
+
   const [title, setTitle] = useState("");
-  const [champion, setChampion] = useState("");
+  const [champion, setChampion] = useState({ name: "", key: 0 });
   const [item1, setItem1] = useState({ name: "", id: 0 });
   const [item2, setItem2] = useState({ name: "", id: 0 });
   const [item3, setItem3] = useState({ name: "", id: 0 });
@@ -14,12 +17,12 @@ const NewBuildPage = () => {
   const [item6, setItem6] = useState({ name: "", id: 0 });
   const [win] = useState(0);
   const [loss] = useState(0);
-  const [champions, setChampions] = useState([]);
-  const [items, setItems] = useState([]);
+  
 
   /* FETCH BUILDS */
   const onSubmit = async (event) => {
     event.preventDefault();
+
     const payload = {
       title,
       champion,
@@ -96,11 +99,19 @@ const NewBuildPage = () => {
         <label>
           Champion
           <select
-            value={champion}
-            onChange={(event) => setChampion(event.target.value)}
+            value={champion.name}
+            onChange={(event) => {
+              const champion = champions.find(
+                (champion) => champion.name === event.target.value
+              );
+              setChampion({
+                name: champion.name,
+                key: champion.key,
+              });
+            }}
             required
           >
-            <option value="">Select an champion</option>
+            <option value="">Select a champion</option>
             {champions.map((champion) => {
               return (
                 <option value={champion.name} key={champion.key}>
