@@ -24,6 +24,7 @@ const ImageSlider = ({ championName, skinsArray }) => {
   return (
     <>
       <div className="slider" style={{backgroundImage:`url(${skinsArray[currentIndex]})`}}>
+        <div className="slider-background"></div>
         <div>
           <div className="arrow-left" onClick={goToPrevious}>
             <img src={arrowleft} />
