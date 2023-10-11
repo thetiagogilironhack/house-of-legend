@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
+import "./Champions.css"
 import HomePage from "./pages/HomePage";
 import ChampionsPage from "./pages/ChampionsPage";
 import ChampionDetailsPage from "./pages/ChampionDetailsPage";
