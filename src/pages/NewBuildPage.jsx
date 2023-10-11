@@ -17,6 +17,7 @@ const NewBuildPage = () => {
   const [item6, setItem6] = useState({ name: "", id: 0 });
   const [win] = useState(0);
   const [loss] = useState(0);
+  
 
   /* FETCH BUILDS */
   const onSubmit = async (event) => {

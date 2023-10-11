@@ -115,10 +115,7 @@ button {
   max-width: 100%;
 }
 
-/* CHAMPIONS DETAILS PAGE */
-
 /* ITEMS PAGE */
-
 .items-list {
   display: flex;
   flex-wrap: wrap;
@@ -149,8 +146,8 @@ button {
   padding: 0.5rem;
 }
 
-/* BUILDS PAGE */
-.build-new-button {
+/* MY BUILDS PAGE */
+.mybuilds-new-button {
   display: inline-block;
   cursor: pointer;
   color: white;
@@ -162,11 +159,29 @@ button {
   transition-duration: 0.3s;
 }
 
-.build-new-button:hover {
-  background-color: rgba(110, 83, 16, 0.473)
+.mybuilds-new-button:hover {
+  background-color: rgba(110, 83, 16, 0.473);
 }
 
-.build-box {
+.mybuilds-box {
+  width: 70vw;
+}
+
+.mybuilds-box button {
+  color: white;
+  background-color: rgb(110, 85, 15);
+  border: none;
+  border-radius: 3px;
+  padding: 2px 5px 2px 5px;
+  transition-duration: 0.3s;
+}
+
+.mybuilds-box button:hover {
+  background-color: rgba(110, 85, 15, 0.5);
+}
+
+/* MY BUILDS PAGE - BOX DISPLAY CHAMPION COMPONENT */
+.mybuilds-champion-box {
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -174,93 +189,85 @@ button {
   margin-bottom: 2rem;
 }
 
-.build-main-div {
+.mybuilds-champion-main-div {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  margin-right: 2rem;
 }
 
-.build-main-div section {
+.mybuilds-champion-main-div img {
+  width: 5rem;
+}
+
+.mybuilds-champion-button {
+  float: right;
+}
+
+/* MY BUILDS PAGE - BOX DISPLAY BUILD COMPONENT */
+.mybuilds-build-box {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+/* MY BUILDS PAGE - BOX DISPLAY BUILD COMPONENT - MAIN DIV */
+.mybuilds-build-main-div {
+  display: flex;
+  padding: 0 2rem 0 2rem;
+}
+
+.mybuilds-build-main-div section {
   display: flex;
   justify-content: left;
   align-items: center;
 }
 
-.build-main-div img {
-  width: 2.5rem;
+.mybuilds-build-main-div img {
+  width: 1.5rem;
   margin: 1rem;
 }
 
-.build-title {
+.mybuilds-build-title-box {
   width: 10rem;
-  padding-left: 2rem;
   font-weight: bold;
   margin-right: 2rem;
 }
 
-.build-champion {
-  width: 9rem;
-  padding-left: 2rem;
-  margin-right: 2rem;
+.mybuilds-build-items-box {
+  width: 10rem;
 }
 
-.build-items {
-  width: 11rem;
-}
-
-.build-ratio {
+.mybuilds-build-ratio-box {
   width: 5rem;
   margin-left: 1rem;
 }
 
-.build-main-div button {
-  cursor: pointer;
-  color: white;
-  background-color: rgb(110, 84, 16);
-  border: none;
-  border-radius: 3px;
-  padding: 2px 5px 2px 5px;
-  margin-right: 1rem;
-  transition-duration: 0.3s;
-}
-
-.build-main-div button:hover {
-  background-color: rgba(110, 83, 16, 0.473)
-}
-
-.build-delete {
+.mybuilds-build-delete-box {
   margin: 1rem;
 }
 
-.build-checkbox button {
+.mybuilds-build-check-box button {
   width: 1.2rem;
 }
 
-.build-hidden-div {
+/* MY BUILDS PAGE - BOX DISPLAY BUILD COMPONENT - HIDDEN DIV */
+.mybuilds-build-hidden-div {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 3rem 0 1rem 0;
 }
 
-.build-hidden-checkbox {
+.mybuilds-build-hidden-checkbox {
   display: flex;
   justify-content: center;
   width: 7rem;
 }
 
-.build-hidden-checkbox p {
+.mybuilds-build-hidden-checkbox p {
   width: 4rem;
-}
-
-.build-hidden-checkbox button {
-  cursor: pointer;
-  color: white;
-  background-color: rgb(110, 84, 16);
-  border: none;
-  border-radius: 3px;
-  padding: 2px 5px 2px 5px;
-  transition-duration: 0.3s;
-}
-
-.build-hidden-checkbox button:hover {
-  background-color: rgba(110, 83, 16, 0.473)
 }

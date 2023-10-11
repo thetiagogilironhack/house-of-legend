@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import BuildDeleteButton from "./BuildDeleteButton";
+import BuildDeleteButton from "./DeleteBuildButton";
 
 const BuildDisplay = ({ build, fetchAllBuilds, updateBuild }) => {
   const [showCheckbox, setShowCheckbox] = useState(false);
@@ -16,6 +16,7 @@ const BuildDisplay = ({ build, fetchAllBuilds, updateBuild }) => {
   /* HANDLE GAMES PLAYED, WINS AND LOSSES */
   let ratio = 0;
   let gamesPlayed = build.win + build.loss;
+
   if (build.loss === 0 && build.win > 0) {
     ratio = 100;
   } else if (build.loss > 0) {
@@ -35,26 +36,17 @@ const BuildDisplay = ({ build, fetchAllBuilds, updateBuild }) => {
   }
 
   return (
-    <div className="build-box">
+    <div className="mybuilds-build-box">
       {/* --- MAIN DIV --- */}
-      <div className="build-main-div">
+      <div className="mybuilds-build-main-div">
         {/* TITLE SECTION */}
-        <section className="build-title">
+        <section className="mybuilds-build-title-box">
           <p>{build.title}</p>
         </section>
 
-        {/* CHAMPION SECTION */}
-        <section className="build-champion">
-          <img
-            src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${build.champion.name}_0.jpg`}
-            alt={"Item IMG"}
-          />
-          <p>{build.champion.name}</p>
-        </section>
-
         {/* ITEMS SECTION */}
-        {items.map((item) => (
-          <section key={item.id} className="build-items">
+        {items.map((item, index) => (
+          <section key={`${item.id}${index}`} className="mybuilds-build-items-box">
             <img
               src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${item.id}.png`}
               alt={"Item IMG"}
@@ -64,19 +56,19 @@ const BuildDisplay = ({ build, fetchAllBuilds, updateBuild }) => {
         ))}
 
         {/* WIN RATIO SECTION */}
-        <section className="build-ratio">
+        <section className="mybuilds-build-ratio-box">
           <p>
             <span style={{ color: ratioColor }}>{ratio}</span>% WR
           </p>
         </section>
 
         {/* DELETE BUTTON SECTION */}
-        <section className="build-delete">
+        <section className="mybuilds-build-delete-box">
           <BuildDeleteButton build={build} fetchAll={fetchAllBuilds} />
         </section>
 
         {/* CHECKBOX SECTION */}
-        <section className="build-checkbox">
+        <section className="mybuilds-build-check-box">
           <button type="button" onClick={() => setShowCheckbox(!showCheckbox)}>
             {showCheckbox ? "-" : "+"}
           </button>
@@ -85,21 +77,21 @@ const BuildDisplay = ({ build, fetchAllBuilds, updateBuild }) => {
 
       {/* --- HIDDEN DIV --- */}
       {showCheckbox && (
-        <div className="build-hidden-div">
+        <div className="mybuilds-build-hidden-div">
           <p>Games played with this build:</p>
 
-          <section className="build-hidden-checkbox">
+          <section className="mybuilds-build-hidden-checkbox">
             <p>{gamesPlayed} games</p>
           </section>
 
-          <section className="build-hidden-checkbox">
+          <section className="mybuilds-build-hidden-checkbox">
             <p>{build.win} wins</p>
             <button onClick={() => updateBuild(build, "win", build.win)}>
               +
             </button>
           </section>
 
-          <section className="build-hidden-checkbox">
+          <section className="mybuilds-build-hidden-checkbox">
             <p>{build.loss} losses</p>
             <button onClick={() => updateBuild(build, "loss", build.loss)}>
               +
