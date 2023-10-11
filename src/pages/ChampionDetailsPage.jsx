@@ -28,7 +28,7 @@ const ChampionDetailsPage = () => {
       {/* CHAMPION DETAILS */}
 
       <section className="container-slides">
-        <ImageSlider championName={champion.id} skinsArray={skins} />
+        <ImageSlider championName={champion.key} skinsArray={skins} />
       </section>
 
       <section className="champion-info">

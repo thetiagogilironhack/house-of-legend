@@ -25,10 +25,9 @@
 }
 
 .slide-img {
-    width: 55%;
-    height: 55%;
+  width: 55%;
+  height: 55%;
 }
-
 
 .arrow-left img {
   position: absolute;
@@ -39,7 +38,7 @@
   color: #fff;
   z-index: 3;
   cursor: pointer;
-  filter: opacity(0%)
+  filter: opacity(0%);
 }
 
 .arrow-right img {
@@ -51,7 +50,7 @@
   color: #fff;
   z-index: 3;
   cursor: pointer;
-  filter: opacity(0%)
+  filter: opacity(0%);
 }
 
 .arrow-left img:hover,
@@ -72,7 +71,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  top:100px;
+  top: 100px;
   z-index: 3;
 }
 
@@ -81,20 +80,19 @@
   cursor: pointer;
   font-size: 20px;
   color: white;
-  filter: opacity(60%)
+  filter: opacity(60%);
 }
-
 
 /* CHAMPIONS INFO*/
 
 .champion-info {
-    margin: 0 auto;
-    width: 55%;
-    padding-bottom: 50px;
+  margin: 0 auto;
+  width: 55%;
+  padding-bottom: 50px;
 }
 
 .champion-info h1,
-p {
+.champion-info p {
   color: white;
 }
 
@@ -111,15 +109,13 @@ p {
 }
 
 table {
-    width: 100%;
+  width: 100%;
 }
 
-table, td {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    color: white;
-    border: 1px solid
+table,
+td {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: white;
+  border: 1px solid;
 }
-
-
-

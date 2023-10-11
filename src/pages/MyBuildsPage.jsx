@@ -42,7 +42,6 @@ const MyBuildsPage = () => {
           },
         }
       );
-      console.log(response);
       if (response.ok) {
         await fetchAllBuilds();
       }

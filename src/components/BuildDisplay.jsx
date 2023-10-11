@@ -20,8 +20,6 @@ const BuildDisplay = ({ build, fetchAllBuilds, updateBuild }) => {
     ratio = 100;
   } else if (build.loss > 0) {
     ratio = Math.round((build.win / gamesPlayed) * 100);
-  } else {
-    0;
   }
 
   let ratioColor = "";
@@ -48,10 +46,10 @@ const BuildDisplay = ({ build, fetchAllBuilds, updateBuild }) => {
         {/* CHAMPION SECTION */}
         <section className="build-champion">
           <img
-            src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${build.champion}_0.jpg`}
+            src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${build.champion.name}_0.jpg`}
             alt={"Item IMG"}
           />
-          <p>{build.champion}</p>
+          <p>{build.champion.name}</p>
         </section>
 
         {/* ITEMS SECTION */}

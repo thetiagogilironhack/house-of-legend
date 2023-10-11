@@ -24,7 +24,7 @@ const ItemsPage = () => {
       <ul className="items-list">
         {items.map((oneItem) => {
           return (
-            <li key={oneItem.id} className="items-box">
+            <li key={oneItem.key} className="items-box">
               <section>
                 <img
                   src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${oneItem.id}.png`}
