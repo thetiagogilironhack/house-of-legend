@@ -282,7 +282,7 @@
 }
 
 .champion-previous-champion-button {
-  border: 1px solid white;
+  border: 1px solid #b39556;
   border-radius: 5px;
   height: 40px;
   margin: 0 0 50px 20px;
@@ -293,7 +293,7 @@
 }
 
 .champion-next-champion-button {
-  border: 1px solid white;
+  border: 1px solid #b39556;
   border-radius: 5px;
   height: 40px;
   margin: 0 20px 50px 0;
@@ -303,8 +303,4 @@
 
 }
 
-.champion-previous-champion-button span, 
-.champion-next-champion-button span {
-  color: rgb(21, 3, 3);
-}
 
