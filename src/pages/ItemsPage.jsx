@@ -18,7 +18,7 @@ const ItemsPage = () => {
 
   return (
     <div className="container">
-      <h1>Items List</h1>
+      <h1>ITEMS</h1>
 
       {/* LIST OF CHAMPIONS */}
         <ul className="items-list">

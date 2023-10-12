@@ -25,6 +25,7 @@ button {
   cursor: pointer;
   color: white;
   background-color: #b39556;
+  border: none;
   transition-duration: 0.3s;
 }
 
@@ -38,8 +39,14 @@ button:hover {
   align-items: center;
 }
 
+.container > * {
+  margin: 1rem;
+}
+
 .container h1 {
-  margin: 2rem 0 1rem;
+  font-size: 3rem;
+  font-style: italic;
+  color: rgb(220, 220, 220);
 }
 
 ::-webkit-scrollbar {
@@ -120,6 +127,56 @@ button:hover {
   align-items: center;
 }
 
+/* SEARCH BAR && FILTERS*/
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin: 0.8rem 2rem 0.8rem;
+}
+.search-bar input {
+  color: #b39556;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.search-bar input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.filter-bar {
+  color: rgb(100, 100, 100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.filter-bar::before,
+.filter-bar::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgb(100, 100, 100);
+  transform: skewX(-30deg);
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.filter-bar button {
+  margin: 0.8rem 2rem 0.8rem;
+  background-color: transparent;
+}
+
+.filter-bar button:hover {
+  color: #b39556;
+  background-color: transparent;
+}
+
 /* HOME PAGE */
 .home-page-section {
   color: black;
@@ -181,7 +238,6 @@ button:hover {
   justify-content: flex-start;
   margin-right: -3rem;
   width: 80vw;
-
 }
 
 .items-list li {
@@ -220,12 +276,11 @@ button:hover {
 }
 
 /* MY BUILDS PAGE */
-.mybuilds-buttons-box {
-  margin: 2rem 0 2rem;
-  width: 75vw;
+.mybuilds-div {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   align-items: center;
+  width: 70vw;
 }
 
 .mybuilds-create-button {
@@ -255,7 +310,6 @@ button:hover {
 }
 
 .mybuilds-box button {
-  border: none;
   border-radius: 3px;
   padding: 2px 5px 2px 5px;
 }
@@ -364,6 +418,12 @@ button:hover {
   flex-wrap: wrap;
 }
 
+.mybuilds-build-hidden-div div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .mybuilds-build-hidden-checkbox {
   display: flex;
   justify-content: center;
@@ -393,7 +453,6 @@ button:hover {
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  margin-bottom: 5rem;
   background-color: rgb(220, 220, 220);
 }
 

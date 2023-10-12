@@ -103,16 +103,19 @@ const MyBuildsPage = () => {
 
   return (
     <div className="container">
-      <h1>My Builds</h1>
+      <h1>BUILDS</h1>
 
-      <div className="search-bar">
-        <SearchBar name={"build"} search={search} setSearch={setSearch} />
-      </div>
+      <div className="mybuilds-div">
+        <div style={{width: "3rem"}} />
+        <div className="filter-bar">
+          <SearchBar name={"build"} search={search} setSearch={setSearch} />
+        </div>
 
-      <div className="mybuilds-buttons-box">
-        <Link to="/builds/new">
-          <button className="mybuilds-create-button">+</button>
-        </Link>
+        <div>
+          <Link to="/builds/new">
+            <button className="mybuilds-create-button">+</button>
+          </Link>
+        </div>
       </div>
 
       <div className="mybuilds-box">

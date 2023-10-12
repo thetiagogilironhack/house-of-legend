@@ -65,7 +65,6 @@ const ChampionDetailsPage = () => {
 
       <section className="champion-half-bottom-section">
         {/*Button to go to previous champion*/}
-
         {champions.map((listChampion, index) => {
           if (champion?.id === listChampion.id && index !== 0) {
             return (
@@ -144,7 +143,7 @@ const ChampionDetailsPage = () => {
         {champions.map((listChampion, index) => {
           if (
             champion?.id === listChampion.id &&
-            index !== (champions.length - 1)
+            index !== champions.length - 1
           ) {
             return (
               <Link to={`/champions/${champions[index + 1]?.id}`}>
@@ -155,14 +154,11 @@ const ChampionDetailsPage = () => {
             );
           } else if (
             champion?.id === listChampion.id &&
-            index === (champions.length - 1)
+            index === champions.length - 1
           ) {
             return (
               <Link to={`/champions/${champions[index]?.id}`}>
-                <button
-                  type="btn"
-                  className="champion-next-champion-button"
-                >
+                <button type="btn" className="champion-next-champion-button">
                   <span>Previous Champion</span>
                 </button>
               </Link>

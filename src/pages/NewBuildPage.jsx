@@ -96,7 +96,7 @@ const NewBuildPage = () => {
 
   return (
     <div className="container" onSubmit={onSubmit}>
-      <h1>Create New Build</h1>
+      <h1>CREATE NEW BUILD</h1>
 
       <form className="newbuilds-box">
         {/* CHAMPION LABEL */}
@@ -332,7 +332,9 @@ const NewBuildPage = () => {
         </div>
 
         {/* SUBMIT BUTTON */}
-        <button type="submit">Create</button>
+        <div>
+          <button type="submit">Create</button>
+        </div>
       </form>
     </div>
   );
