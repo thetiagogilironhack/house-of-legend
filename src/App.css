@@ -173,16 +173,20 @@ button:hover {
 }
 
 /* ITEMS PAGE */
+
 .items-list {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-right: -3rem;
+  width: 80vw;
+
 }
 
 .items-list li {
   list-style: none;
-  width: 23rem;
+  width: 30%;
   margin: 1rem;
 }
 
@@ -194,6 +198,7 @@ button:hover {
   padding: 1rem;
   border-radius: 8px;
   background-color: rgb(220, 220, 220);
+  height: auto;
 }
 
 .items-box img {
@@ -203,6 +208,15 @@ button:hover {
 .items-box p {
   margin: 0;
   padding: 0.5rem;
+}
+
+.items-tags-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.items-tags-box p {
+  width: 8rem;
 }
 
 /* MY BUILDS PAGE */
