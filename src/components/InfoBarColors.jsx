@@ -42,7 +42,7 @@ const InfoBarColors = ({name, props }) => {
     color5 = "#08d7f7";
   }
   return (
-    <>
+    <div className="champion-one-stat">
       <p>{name}</p>
       <div className="bar-level-container">
         <div className="bar-level">
@@ -68,7 +68,7 @@ const InfoBarColors = ({name, props }) => {
           ></div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

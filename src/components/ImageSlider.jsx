@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import arrowleft from "../assets/left-arrow.png";
 import arrowright from "../assets/right-arrow.png";
 
-const ImageSlider = ({ championName, skinsArray }) => {
+const ImageSlider = ({ skinsArray }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -21,21 +21,26 @@ const ImageSlider = ({ championName, skinsArray }) => {
     setCurrentIndex(slideIndex);
   };
 
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [skinsArray]);
+
   return (
     <>
-      <div className="slider" style={{backgroundImage:`url(${skinsArray[currentIndex]})`}}>
+      <div
+        className="slider"
+        style={{ backgroundImage: `url(${skinsArray[currentIndex]})` }}
+      >
         <div className="slider-background"></div>
-        <div>
-          <div className="arrow-left" onClick={goToPrevious}>
-            <img src={arrowleft} />
-          </div>
-          <div className="arrow-right" onClick={goToNext}>
-            <img src={arrowright} />
-          </div>
-        </div>
 
         <div className="one-slide">
+            <div className="arrow" onClick={goToPrevious}>
+              <img src={arrowleft} />
+            </div>
           <img className="slide-img" src={skinsArray[currentIndex]} />
+          <div className="arrow" onClick={goToNext}>
+              <img src={arrowright} />
+            </div>
         </div>
 
         <div className="dots-container">
@@ -43,7 +48,7 @@ const ImageSlider = ({ championName, skinsArray }) => {
             return (
               <div
                 key={slideIndex}
-                className="dots-styles"
+                className={`dots-styles ${slideIndex === currentIndex ? 'active-dot' : ''}`}
                 onClick={() => goToSlide(slideIndex)}
               >
                 ●
@@ -51,8 +56,6 @@ const ImageSlider = ({ championName, skinsArray }) => {
             );
           })}
         </div>
-        
-        {/*<img className="bg-image" src={skinsArray[currentIndex]} />*/}
       </div>
     </>
   );
