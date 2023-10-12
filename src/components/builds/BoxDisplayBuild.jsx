@@ -54,7 +54,7 @@ const BuildDisplay = ({ build, fetchAllBuilds, updateBuild }) => {
               >
                 <img
                   src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${item.id}.png`}
-                  alt={"Item IMG"}
+                  alt={item.name}
                 />
                 <p>{item.name}</p>
               </section>

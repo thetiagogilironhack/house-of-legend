@@ -8,6 +8,9 @@ body {
   font-family: "Calibri";
   color: white;
   background-color: #050d16;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 4rem;
 }
 
 a {
@@ -110,6 +113,8 @@ button:hover {
   margin-top: 2rem;
   height: 4rem;
   width: 100%;
+  position: absolute;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;

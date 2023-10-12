@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BoxDisplayChampion from "../components/builds/BoxDisplayChampion";
+import SearchBar from "../components/SearchBar";
 
 const MyBuildsPage = () => {
   const [builds, setBuilds] = useState([]);
   const [, setChampions] = useState([]);
+  const [search, setSearch] = useState("");
 
   /* FETCH CHAMPIONS */
   const fetchAllChampions = async () => {
@@ -24,15 +26,24 @@ const MyBuildsPage = () => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/builds`);
     if (response.ok) {
       const allBuilds = await response.json();
-      setBuilds(allBuilds);
+      const buildsSorted = allBuilds.sort((a, b) => {
+        if (a.champion.name.toLowerCase() < b.champion.name.toLowerCase()) {
+          return -1;
+        } else if (
+          a.champion.name.toLowerCase() > b.champion.name.toLowerCase()
+        ) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      setBuilds(buildsSorted);
     }
   };
 
   useEffect(() => {
     fetchAllBuilds();
   }, []);
-
-  useEffect(() => {}, [builds]);
 
   /* UPDATE BUILD */
   const updateBuild = async (build, type, value) => {
@@ -83,9 +94,20 @@ const MyBuildsPage = () => {
 
   const groupedBuilds = groupBuildsByChampion(builds);
 
+  /* SEARCH BAR */
+  const filteredBuilds = builds.filter((build) =>
+    build.champion.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  console.log(builds);
+
   return (
     <div className="container">
       <h1>My Builds</h1>
+
+      <div className="search-bar">
+        <SearchBar name={"build"} search={search} setSearch={setSearch} />
+      </div>
 
       <div className="mybuilds-buttons-box">
         <Link to="/builds/new">
@@ -94,19 +116,21 @@ const MyBuildsPage = () => {
       </div>
 
       <div className="mybuilds-box">
-        {Object.keys(groupedBuilds).map((championName) => {
-          const array = groupedBuilds[championName];
+        {Object.keys(groupBuildsByChampion(filteredBuilds)).map(
+          (championName) => {
+            const array = groupedBuilds[championName];
 
-          return (
-            <BoxDisplayChampion
-              key={championName}
-              championName={championName}
-              array={array}
-              fetchAllBuilds={fetchAllBuilds}
-              updateBuild={updateBuild}
-            />
-          );
-        })}
+            return (
+              <BoxDisplayChampion
+                key={championName}
+                championName={championName}
+                array={array}
+                fetchAllBuilds={fetchAllBuilds}
+                updateBuild={updateBuild}
+              />
+            );
+          }
+        )}
       </div>
     </div>
   );

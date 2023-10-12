@@ -6,6 +6,7 @@ const NewBuildPage = () => {
 
   const [champions, setChampions] = useState([]);
   const [items, setItems] = useState([]);
+  const [boots, setBoots] = useState([]);
 
   const [title, setTitle] = useState("");
   const [champion, setChampion] = useState({ name: "", key: 0 });
@@ -60,7 +61,6 @@ const NewBuildPage = () => {
     if (response.ok) {
       const allChampions = await response.json();
       setChampions(allChampions);
-      console.log(allChampions);
     }
   };
 
@@ -72,9 +72,21 @@ const NewBuildPage = () => {
   const fetchAllItems = async () => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/items`);
     if (response.ok) {
+      const bootsArray = [];
+      const noBootsArray = [];
+
       const allItems = await response.json();
-      setItems(allItems);
-      console.log(allItems);
+
+      allItems.forEach((item) => {
+        if (item.tags.includes("Boots")) {
+          bootsArray.push(item);
+        } else {
+          noBootsArray.push(item);
+        }
+      });
+
+      setBoots(bootsArray);
+      setItems(noBootsArray);
     }
   };
 
@@ -134,18 +146,18 @@ const NewBuildPage = () => {
             <select
               value={item1.name}
               onChange={(event) => {
-                const item = items.find(
-                  (item) => item.name === event.target.value
+                const boot = boots.find(
+                  (boots) => boots.name === event.target.value
                 );
                 setItem1({
-                  name: item.name,
-                  id: item.id,
+                  name: boot.name,
+                  id: boot.id,
                 });
               }}
               required
             >
               <option value="">Select an item</option>
-              {items.map((item) => {
+              {boots.map((item) => {
                 return (
                   <option value={item.name} key={item.id}>
                     {item.name}
@@ -199,7 +211,11 @@ const NewBuildPage = () => {
               <option value="">Select an item</option>
               {items.map((item) => {
                 return (
-                  <option value={item.name} key={item.id}>
+                  <option
+                    value={item.name}
+                    key={item.id}
+                    disabled={item2.name === item.name ? true : false}
+                  >
                     {item.name}
                   </option>
                 );
@@ -225,7 +241,15 @@ const NewBuildPage = () => {
               <option value="">Select an item</option>
               {items.map((item) => {
                 return (
-                  <option value={item.name} key={item.id}>
+                  <option
+                    value={item.name}
+                    key={item.id}
+                    disabled={
+                      item2.name === item.name || item3.name === item.name
+                        ? true
+                        : false
+                    }
+                  >
                     {item.name}
                   </option>
                 );
@@ -251,7 +275,17 @@ const NewBuildPage = () => {
               <option value="">Select an item</option>
               {items.map((item) => {
                 return (
-                  <option value={item.name} key={item.id}>
+                  <option
+                    value={item.name}
+                    key={item.id}
+                    disabled={
+                      item2.name === item.name ||
+                      item3.name === item.name ||
+                      item4.name === item.name
+                        ? true
+                        : false
+                    }
+                  >
                     {item.name}
                   </option>
                 );
@@ -277,7 +311,18 @@ const NewBuildPage = () => {
               <option value="">Select an item</option>
               {items.map((item) => {
                 return (
-                  <option value={item.name} key={item.id}>
+                  <option
+                    value={item.name}
+                    key={item.id}
+                    disabled={
+                      item2.name === item.name ||
+                      item3.name === item.name ||
+                      item4.name === item.name ||
+                      item5.name === item.name
+                        ? true
+                        : false
+                    }
+                  >
                     {item.name}
                   </option>
                 );
@@ -287,8 +332,8 @@ const NewBuildPage = () => {
         </div>
 
         {/* SUBMIT BUTTON */}
+        <button type="submit">Create</button>
       </form>
-      <button type="submit">Create</button>
     </div>
   );
 };

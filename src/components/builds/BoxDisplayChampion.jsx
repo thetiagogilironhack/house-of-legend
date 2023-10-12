@@ -18,7 +18,7 @@ const BoxDisplayChampion = ({
             alt={"Item IMG"}
           />
 
-          <h2>{championName} Builds</h2>
+          <h2>{championName} Builds</h2> 
         </section>
 
         <section>
