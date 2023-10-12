@@ -203,7 +203,7 @@ button:hover {
 /* MY BUILDS PAGE */
 .mybuilds-buttons-box {
   margin: 2rem 0 2rem;
-  width: 70vw;
+  width: 75vw;
   display: flex;
   justify-content: right;
   align-items: center;
@@ -232,7 +232,7 @@ button:hover {
 
 .mybuilds-box {
   color: black;
-  width: 70vw;
+  width: 75vw;
 }
 
 .mybuilds-box button {
@@ -256,6 +256,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   margin: 1rem 2rem 1rem 2rem;
+  flex-wrap: wrap;
 }
 
 .mybuilds-champion-main-div section {
@@ -289,7 +290,9 @@ button:hover {
 /* MY BUILDS PAGE - BOX DISPLAY BUILD COMPONENT - MAIN DIV */
 .mybuilds-build-main-div {
   display: flex;
+  justify-content: space-between;
   padding: 0 1rem 0 1rem;
+  flex-wrap: wrap;
 }
 
 .mybuilds-build-main-div section {
@@ -299,23 +302,30 @@ button:hover {
 }
 
 .mybuilds-build-main-div img {
-  width: 1.5rem;
+  width: 2rem;
   margin: 1rem;
+}
+
+.mybuilds-build-wrap-box {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .mybuilds-build-title-box {
   width: 10rem;
-  font-weight: bold;
-  margin-right: 2rem;
 }
 
 .mybuilds-build-items-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mybuilds-build-item {
   width: 10rem;
 }
 
 .mybuilds-build-ratio-box {
-  width: 5rem;
-  margin-left: 1rem;
+  width: 4.5rem;
 }
 
 .mybuilds-build-delete-box {
@@ -332,6 +342,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   margin: 3rem 0 1rem 0;
+  flex-wrap: wrap;
 }
 
 .mybuilds-build-hidden-checkbox {
@@ -345,17 +356,40 @@ button:hover {
 }
 
 /* MY BUILDS PAGE - BOX DISPLAY BUILD COMPONENT - HIDDEN DIV */
-.container label {
-  width: 20rem;
+.newbuilds-box label {
+  width: 10rem;
   display: flex;
   flex-direction: column;
 }
 
-.newbuilds-champion-box {
+.newbuilds-box select,
+.newbuilds-box input {
+  width: 10rem;
+}
+
+.newbuilds-box {
+  color: black;
+  width: 75vw;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin-bottom: 5rem;
   background-color: rgb(220, 220, 220);
+}
+
+.newbuilds-champion-div {
+  margin: 1rem 2rem 1rem 2rem;
+}
+
+.newbuilds-content-div {
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.newbuilds-content-div label {
+  margin: 1rem;
 }

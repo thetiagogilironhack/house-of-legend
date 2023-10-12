@@ -39,64 +39,80 @@ const BuildDisplay = ({ build, fetchAllBuilds, updateBuild }) => {
     <div className="mybuilds-build-box">
       {/* --- MAIN DIV --- */}
       <div className="mybuilds-build-main-div">
-        {/* TITLE SECTION */}
-        <section className="mybuilds-build-title-box">
-          <p>{build.title}</p>
-        </section>
-
-        {/* ITEMS SECTION */}
-        {items.map((item, index) => (
-          <section key={`${item.id}${index}`} className="mybuilds-build-items-box">
-            <img
-              src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${item.id}.png`}
-              alt={"Item IMG"}
-            />
-            <p>{item.name}</p>
+        <div className="mybuilds-build-wrap-box">
+          {/* TITLE SECTION */}
+          <section className="mybuilds-build-title-box">
+            <p>{build.title}</p>
           </section>
-        ))}
 
-        {/* WIN RATIO SECTION */}
-        <section className="mybuilds-build-ratio-box">
-          <p>
-            <span style={{ color: ratioColor }}>{ratio}</span>% WR
-          </p>
-        </section>
+          {/* ITEMS SECTION */}
+          <section className="mybuilds-build-items-box">
+            {items.map((item, index) => (
+              <section
+                key={`${item.id}${index}`}
+                className="mybuilds-build-item"
+              >
+                <img
+                  src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${item.id}.png`}
+                  alt={"Item IMG"}
+                />
+                <p>{item.name}</p>
+              </section>
+            ))}
+          </section>
+        </div>
 
-        {/* DELETE BUTTON SECTION */}
-        <section className="mybuilds-build-delete-box">
-          <BuildDeleteButton build={build} fetchAll={fetchAllBuilds} />
-        </section>
+        <div className="mybuilds-build-wrap-box">
+          {/* WIN RATIO SECTION */}
+          <section className="mybuilds-build-ratio-box">
+            <p>
+              <span style={{ color: ratioColor }}>{ratio}</span>% WR
+            </p>
+          </section>
 
-        {/* CHECKBOX SECTION */}
-        <section className="mybuilds-build-check-box">
-          <button type="button" onClick={() => setShowCheckbox(!showCheckbox)}>
-            {showCheckbox ? "-" : "+"}
-          </button>
-        </section>
+          {/* DELETE BUTTON SECTION */}
+          <section className="mybuilds-build-delete-box">
+            <BuildDeleteButton build={build} fetchAll={fetchAllBuilds} />
+          </section>
+
+          {/* CHECKBOX SECTION */}
+          <section className="mybuilds-build-check-box">
+            <button
+              type="button"
+              onClick={() => setShowCheckbox(!showCheckbox)}
+            >
+              {showCheckbox ? "-" : "+"}
+            </button>
+          </section>
+        </div>
       </div>
 
       {/* --- HIDDEN DIV --- */}
       {showCheckbox && (
         <div className="mybuilds-build-hidden-div">
-          <p>Games played with this build:</p>
+          <div>
+            <p>Games played:</p>
 
-          <section className="mybuilds-build-hidden-checkbox">
-            <p>{gamesPlayed} games</p>
-          </section>
+            <section className="mybuilds-build-hidden-checkbox">
+              <p>{gamesPlayed} games</p>
+            </section>
+          </div>
 
-          <section className="mybuilds-build-hidden-checkbox">
-            <p>{build.win} wins</p>
-            <button onClick={() => updateBuild(build, "win", build.win)}>
-              +
-            </button>
-          </section>
+          <div>
+            <section className="mybuilds-build-hidden-checkbox">
+              <p>{build.win} wins</p>
+              <button onClick={() => updateBuild(build, "win", build.win)}>
+                +
+              </button>
+            </section>
 
-          <section className="mybuilds-build-hidden-checkbox">
-            <p>{build.loss} losses</p>
-            <button onClick={() => updateBuild(build, "loss", build.loss)}>
-              +
-            </button>
-          </section>
+            <section className="mybuilds-build-hidden-checkbox">
+              <p>{build.loss} losses</p>
+              <button onClick={() => updateBuild(build, "loss", build.loss)}>
+                +
+              </button>
+            </section>
+          </div>
         </div>
       )}
     </div>

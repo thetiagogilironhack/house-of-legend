@@ -86,201 +86,209 @@ const NewBuildPage = () => {
     <div className="container" onSubmit={onSubmit}>
       <h1>Create New Build</h1>
 
-      <form className="container">
-        <label>
-          Title
-          <input
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-            required
-            maxLength={15}
-          />
-        </label>
+      <form className="newbuilds-box">
+        {/* CHAMPION LABEL */}
+        <div className="newbuilds-champion-div">
+          <label>
+            Champion
+            <select
+              value={champion.name}
+              onChange={(event) => {
+                const champion = champions.find(
+                  (champion) => champion.name === event.target.value
+                );
+                setChampion({
+                  name: champion.name,
+                  key: champion.key,
+                });
+              }}
+              required
+            >
+              <option value="">Select a champion</option>
+              {champions.map((champion) => {
+                return (
+                  <option value={champion.name} key={champion.key}>
+                    {champion.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+        </div>
 
-        <label>
-          Champion
-          <select
-            value={champion.name}
-            onChange={(event) => {
-              const champion = champions.find(
-                (champion) => champion.name === event.target.value
-              );
-              setChampion({
-                name: champion.name,
-                key: champion.key,
-              });
-            }}
-            required
-          >
-            <option value="">Select a champion</option>
-            {champions.map((champion) => {
-              return (
-                <option value={champion.name} key={champion.key}>
-                  {champion.name}
-                </option>
-              );
-            })}
-          </select>
-        </label>
+        {/* TITLE LABEL */}
+        <div className="newbuilds-content-div">
+          <label>
+            Title
+            <input
+              value={title}
+              onChange={(event) => setTitle(event.target.value)}
+              required
+              maxLength={15}
+            />
+          </label>
 
-        <label>
-          Item 1
-          <select
-            value={item1.name}
-            onChange={(event) => {
-              const item = items.find(
-                (item) => item.name === event.target.value
-              );
-              setItem1({
-                name: item.name,
-                id: item.id,
-              });
-            }}
-            required
-          >
-            <option value="">Select an item</option>
-            {items.map((item) => {
-              return (
-                <option value={item.name} key={item.id}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
-        </label>
+          {/* ITEMS LABEL */}
+          <label>
+            Item 1
+            <select
+              value={item1.name}
+              onChange={(event) => {
+                const item = items.find(
+                  (item) => item.name === event.target.value
+                );
+                setItem1({
+                  name: item.name,
+                  id: item.id,
+                });
+              }}
+              required
+            >
+              <option value="">Select an item</option>
+              {items.map((item) => {
+                return (
+                  <option value={item.name} key={item.id}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
 
-        <label>
-          Item 2
-          <select
-            value={item2.name}
-            onChange={(event) => {
-              const item = items.find(
-                (item) => item.name === event.target.value
-              );
-              setItem2({
-                name: item.name,
-                id: item.id,
-              });
-            }}
-            required
-          >
-            <option value="">Select an item</option>
-            {items.map((item) => {
-              return (
-                <option value={item.name} key={item.id}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
-        </label>
+          <label>
+            Item 2
+            <select
+              value={item2.name}
+              onChange={(event) => {
+                const item = items.find(
+                  (item) => item.name === event.target.value
+                );
+                setItem2({
+                  name: item.name,
+                  id: item.id,
+                });
+              }}
+              required
+            >
+              <option value="">Select an item</option>
+              {items.map((item) => {
+                return (
+                  <option value={item.name} key={item.id}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
 
-        <label>
-          Item 3
-          <select
-            value={item3.name}
-            onChange={(event) => {
-              const item = items.find(
-                (item) => item.name === event.target.value
-              );
-              setItem3({
-                name: item.name,
-                id: item.id,
-              });
-            }}
-            required
-          >
-            <option value="">Select an item</option>
-            {items.map((item) => {
-              return (
-                <option value={item.name} key={item.id}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
-        </label>
+          <label>
+            Item 3
+            <select
+              value={item3.name}
+              onChange={(event) => {
+                const item = items.find(
+                  (item) => item.name === event.target.value
+                );
+                setItem3({
+                  name: item.name,
+                  id: item.id,
+                });
+              }}
+              required
+            >
+              <option value="">Select an item</option>
+              {items.map((item) => {
+                return (
+                  <option value={item.name} key={item.id}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
 
-        <label>
-          Item 4
-          <select
-            value={item4.name}
-            onChange={(event) => {
-              const item = items.find(
-                (item) => item.name === event.target.value
-              );
-              setItem4({
-                name: item.name,
-                id: item.id,
-              });
-            }}
-            required
-          >
-            <option value="">Select an item</option>
-            {items.map((item) => {
-              return (
-                <option value={item.name} key={item.id}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
-        </label>
+          <label>
+            Item 4
+            <select
+              value={item4.name}
+              onChange={(event) => {
+                const item = items.find(
+                  (item) => item.name === event.target.value
+                );
+                setItem4({
+                  name: item.name,
+                  id: item.id,
+                });
+              }}
+              required
+            >
+              <option value="">Select an item</option>
+              {items.map((item) => {
+                return (
+                  <option value={item.name} key={item.id}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
 
-        <label>
-          Item 5
-          <select
-            value={item5.name}
-            onChange={(event) => {
-              const item = items.find(
-                (item) => item.name === event.target.value
-              );
-              setItem5({
-                name: item.name,
-                id: item.id,
-              });
-            }}
-            required
-          >
-            <option value="">Select an item</option>
-            {items.map((item) => {
-              return (
-                <option value={item.name} key={item.id}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
-        </label>
+          <label>
+            Item 5
+            <select
+              value={item5.name}
+              onChange={(event) => {
+                const item = items.find(
+                  (item) => item.name === event.target.value
+                );
+                setItem5({
+                  name: item.name,
+                  id: item.id,
+                });
+              }}
+              required
+            >
+              <option value="">Select an item</option>
+              {items.map((item) => {
+                return (
+                  <option value={item.name} key={item.id}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
 
-        <label>
-          Item 6
-          <select
-            value={item6.name}
-            onChange={(event) => {
-              const item = items.find(
-                (item) => item.name === event.target.value
-              );
-              setItem6({
-                name: item.name,
-                id: item.id,
-              });
-            }}
-            required
-          >
-            <option value="">Select an item</option>
-            {items.map((item) => {
-              return (
-                <option value={item.name} key={item.id}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
-        </label>
+          <label>
+            Item 6
+            <select
+              value={item6.name}
+              onChange={(event) => {
+                const item = items.find(
+                  (item) => item.name === event.target.value
+                );
+                setItem6({
+                  name: item.name,
+                  id: item.id,
+                });
+              }}
+              required
+            >
+              <option value="">Select an item</option>
+              {items.map((item) => {
+                return (
+                  <option value={item.name} key={item.id}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+        </div>
 
-        <button type="submit">Create</button>
+        {/* SUBMIT BUTTON */}
       </form>
+      <button type="submit">Create</button>
     </div>
   );
 };
