@@ -7,16 +7,18 @@ const BoxDisplayChampion = ({
   fetchAllBuilds,
   updateBuild,
 }) => {
-  const [showCheckbox, setShowCheckbox] = useState(false);
+  const [showCheckbox, setShowCheckbox] = useState(true);
   return (
     <div className="mybuilds-champion-box">
       <div className="mybuilds-champion-main-div">
-        <img
-          src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${championName}_0.jpg`}
-          alt={"Item IMG"}
-        />
+        <section className="mybuilds-champion-title-box">
+          <img
+            src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${championName}_0.jpg`}
+            alt={"Item IMG"}
+          />
 
-        <h2>{championName}</h2>
+          <h2>{championName}</h2>
+        </section>
 
         <button
           type="button"
@@ -28,7 +30,7 @@ const BoxDisplayChampion = ({
       </div>
 
       <div>
-        {!showCheckbox &&
+        {showCheckbox &&
           array.map((build, index) => (
             <BuildDisplay
               key={`${championName}${build.id}${index}`}

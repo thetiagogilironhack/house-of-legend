@@ -186,7 +186,7 @@ button {
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 .mybuilds-champion-main-div {
@@ -196,12 +196,20 @@ button {
   margin: 1rem 2rem 1rem 2rem;
 }
 
-.mybuilds-champion-main-div img {
-  width: 5rem;
+.mybuilds-champion-title-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mybuilds-champion-title-box img {
+  width: 4rem;
+  margin-right: 2rem
 }
 
 .mybuilds-champion-button {
   float: right;
+  width: 1.2rem;
 }
 
 /* MY BUILDS PAGE - BOX DISPLAY BUILD COMPONENT */
@@ -210,7 +218,7 @@ button {
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  margin-top: 1rem;
+  margin: 1rem;
 }
 
 /* MY BUILDS PAGE - BOX DISPLAY BUILD COMPONENT - MAIN DIV */
