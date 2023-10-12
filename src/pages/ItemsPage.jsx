@@ -33,8 +33,8 @@ const ItemsPage = () => {
               </section>
 
               <section>
-                <p>Name: {oneItem.name}</p>
-                <p>Price: {oneItem.gold.total}g</p>
+                <p>{oneItem.name}</p>
+                <p>{oneItem.tags}g</p>
               </section>
             </li>
           );

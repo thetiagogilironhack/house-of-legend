@@ -36,7 +36,7 @@ button:hover {
 }
 
 .container h1 {
-  margin: 3rem 0 1rem;
+  margin: 2rem 0 1rem;
 }
 
 ::-webkit-scrollbar {
@@ -205,7 +205,7 @@ button:hover {
   margin: 2rem 0 2rem;
   width: 70vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
 }
 
@@ -342,4 +342,20 @@ button:hover {
 
 .mybuilds-build-hidden-checkbox p {
   width: 4rem;
+}
+
+/* MY BUILDS PAGE - BOX DISPLAY BUILD COMPONENT - HIDDEN DIV */
+.container label {
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.newbuilds-champion-box {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-bottom: 5rem;
+  background-color: rgb(220, 220, 220);
 }

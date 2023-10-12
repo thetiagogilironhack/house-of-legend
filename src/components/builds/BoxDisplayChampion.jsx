@@ -6,7 +6,6 @@ const BoxDisplayChampion = ({
   array,
   fetchAllBuilds,
   updateBuild,
-  showAllCheckbox,
 }) => {
   const [showCheckbox, setShowCheckbox] = useState(true);
 
@@ -24,18 +23,14 @@ const BoxDisplayChampion = ({
 
         <section>
           <p>Number of Builds: {array.length}</p>
-          <button
-            type="button"
-            onClick={() => setShowCheckbox(!showCheckbox)}
-            
-          >
+          <button type="button" onClick={() => setShowCheckbox(!showCheckbox)}>
             {showCheckbox ? "-" : "+"}
           </button>
         </section>
       </div>
 
       <div>
-        {(showAllCheckbox && showCheckbox) &&
+        {showCheckbox &&
           array.map((build, index) => (
             <BuildDisplay
               key={`${championName}${build.id}${index}`}

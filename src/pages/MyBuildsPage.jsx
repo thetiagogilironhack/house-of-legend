@@ -5,7 +5,6 @@ import BoxDisplayChampion from "../components/builds/BoxDisplayChampion";
 const MyBuildsPage = () => {
   const [builds, setBuilds] = useState([]);
   const [, setChampions] = useState([]);
-  const [showAllCheckbox, setShowAllCheckbox] = useState(true);
 
   /* FETCH CHAMPIONS */
   const fetchAllChampions = async () => {
@@ -92,14 +91,6 @@ const MyBuildsPage = () => {
         <Link to="/builds/new">
           <button className="mybuilds-create-button">+</button>
         </Link>
-
-        <button
-          type="button"
-          onClick={() => setShowAllCheckbox(!showAllCheckbox)}
-          className="mybuilds-hide-button"
-        >
-          {showAllCheckbox ? "Hide All" : "Show All"}
-        </button>
       </div>
 
       <div className="mybuilds-box">
@@ -113,7 +104,6 @@ const MyBuildsPage = () => {
               array={array}
               fetchAllBuilds={fetchAllBuilds}
               updateBuild={updateBuild}
-              showAllCheckbox={showAllCheckbox}
             />
           );
         })}
