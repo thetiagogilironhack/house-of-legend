@@ -5,6 +5,7 @@ import BoxDisplayChampion from "../components/builds/BoxDisplayChampion";
 const MyBuildsPage = () => {
   const [builds, setBuilds] = useState([]);
   const [, setChampions] = useState([]);
+  const [showAllCheckbox, setShowAllCheckbox] = useState(true);
 
   /* FETCH CHAMPIONS */
   const fetchAllChampions = async () => {
@@ -87,26 +88,35 @@ const MyBuildsPage = () => {
     <div className="container">
       <h1>My Builds</h1>
 
-      <Link to="/builds/new">
-        <button className="mybuilds-new-button">New Build</button>
-      </Link>
+      <div className="mybuilds-buttons-box">
+        <Link to="/builds/new">
+          <button className="mybuilds-create-button">+</button>
+        </Link>
+
+        <button
+          type="button"
+          onClick={() => setShowAllCheckbox(!showAllCheckbox)}
+          className="mybuilds-hide-button"
+        >
+          {showAllCheckbox ? "Hide All" : "Show All"}
+        </button>
+      </div>
 
       <div className="mybuilds-box">
-        {Object.keys(groupedBuilds)
-          .map((championName) => {
-            const array = groupedBuilds[championName];
+        {Object.keys(groupedBuilds).map((championName) => {
+          const array = groupedBuilds[championName];
 
-            return (
-              <BoxDisplayChampion
-                key={championName}
-                championName={championName}
-                array={array}
-                fetchAllBuilds={fetchAllBuilds}
-                updateBuild={updateBuild}
-              />
-            );
-          })
-          .sort()}
+          return (
+            <BoxDisplayChampion
+              key={championName}
+              championName={championName}
+              array={array}
+              fetchAllBuilds={fetchAllBuilds}
+              updateBuild={updateBuild}
+              showAllCheckbox={showAllCheckbox}
+            />
+          );
+        })}
       </div>
     </div>
   );

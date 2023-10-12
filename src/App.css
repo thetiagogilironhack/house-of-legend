@@ -6,6 +6,8 @@
 
 body {
   font-family: "Calibri";
+  color: white;
+  background-color: #050d16;
 }
 
 a {
@@ -18,6 +20,13 @@ li {
 
 button {
   cursor: pointer;
+  color: white;
+  background-color: #b39556;
+  transition-duration: 0.3s;
+}
+
+button:hover {
+  background-color: rgba(128, 101, 21, 0.5);
 }
 
 .container {
@@ -26,40 +35,84 @@ button {
   align-items: center;
 }
 
+.container h1 {
+  margin: 3rem 0 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(220, 220, 220);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b39556;
+}
+
 /* NAVBAR AND FOOTER */
 .navbar {
   color: white;
+  background-color: #1d1d1d;
   text-decoration: none;
-  background-color: rgb(30, 30, 30);
   padding: 0;
   height: 4rem;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
-  width: 100%;
+  z-index: 10;
 }
 
 .navbar-margin {
   height: 4rem;
 }
 
-.navbar img {
+.navbar-logo-div {
+  position: absolute;
+  left: 3rem;
+}
+
+.navbar-logo-div img {
   height: 2rem;
+}
+
+.navbar-text-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-text-div section {
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-text-div section h3 {
+  color: white;
+  padding: 0.2rem 0.5rem 0.2rem;
+  transition-duration: 0.3s;
+}
+
+.navbar-text-div section h3:hover {
+  color: #b39556;
 }
 
 .footer {
   color: white;
+  background-color: #1d1d1d;
   text-decoration: none;
-  background-color: rgb(30, 30, 30);
   padding: 0;
+  margin-top: 2rem;
   height: 4rem;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 0;
-  width: 100%;
 }
 
 /* HOME PAGE */
@@ -67,7 +120,7 @@ button {
   color: black;
   text-decoration: none;
   background-color: rgba(194, 165, 110, 0.7);
-  width: 2000px;
+  width: 100vw;
   height: 10rem;
   display: flex;
   justify-content: center;
@@ -93,7 +146,6 @@ button {
   margin: 3rem;
   background-color: black;
   transition: background-color 0.5s;
-  box-shadow: 0 0 10px rgb(88, 88, 88);
 }
 
 .champions-list li:hover {
@@ -130,11 +182,13 @@ button {
 }
 
 .items-box {
+  color: black;
   display: flex;
   align-items: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   border-radius: 8px;
+  background-color: rgb(220, 220, 220);
 }
 
 .items-box img {
@@ -147,37 +201,44 @@ button {
 }
 
 /* MY BUILDS PAGE */
-.mybuilds-new-button {
-  display: inline-block;
-  cursor: pointer;
-  color: white;
-  background-color: rgb(110, 84, 16);
-  border: none;
-  border-radius: 3px;
-  padding: 5px;
+.mybuilds-buttons-box {
   margin: 2rem 0 2rem;
-  transition-duration: 0.3s;
+  width: 70vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.mybuilds-new-button:hover {
-  background-color: rgba(110, 83, 16, 0.473);
+.mybuilds-create-button {
+  display: inline-block;
+  border: none;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem 0.2rem;
+  margin: 0 2rem 0;
+  height: 3rem;
+  width: 3rem;
+  font-size: 2rem;
+}
+
+.mybuilds-hide-button {
+  display: inline-block;
+  border: none;
+  border-radius: 3px;
+  padding: 0.2rem 0.5rem 0.2rem;
+  margin: 0 2rem 0;
+  height: 1.3rem;
+  width: 5rem;
 }
 
 .mybuilds-box {
+  color: black;
   width: 70vw;
 }
 
 .mybuilds-box button {
-  color: white;
-  background-color: rgb(110, 85, 15);
   border: none;
   border-radius: 3px;
   padding: 2px 5px 2px 5px;
-  transition-duration: 0.3s;
-}
-
-.mybuilds-box button:hover {
-  background-color: rgba(110, 85, 15, 0.5);
 }
 
 /* MY BUILDS PAGE - BOX DISPLAY CHAMPION COMPONENT */
@@ -187,6 +248,7 @@ button {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin-bottom: 5rem;
+  background-color: rgb(220, 220, 220);
 }
 
 .mybuilds-champion-main-div {
@@ -196,18 +258,21 @@ button {
   margin: 1rem 2rem 1rem 2rem;
 }
 
-.mybuilds-champion-title-box {
+.mybuilds-champion-main-div section {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
-.mybuilds-champion-title-box img {
-  width: 4rem;
-  margin-right: 2rem
+.mybuilds-champion-main-div button {
+  margin-left: 2rem;
 }
 
-.mybuilds-champion-button {
+.mybuilds-champion-main-div img {
+  width: 4rem;
+  margin-right: 2rem;
+}
+
+.mybuilds-champion-main-div section button {
   float: right;
   width: 1.2rem;
 }
@@ -224,7 +289,7 @@ button {
 /* MY BUILDS PAGE - BOX DISPLAY BUILD COMPONENT - MAIN DIV */
 .mybuilds-build-main-div {
   display: flex;
-  padding: 0 2rem 0 2rem;
+  padding: 0 1rem 0 1rem;
 }
 
 .mybuilds-build-main-div section {
