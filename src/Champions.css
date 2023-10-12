@@ -1,8 +1,8 @@
-.main-container {
+.champion-main-container {
   background-color: #050d16;
 }
 
-.container-slides {
+.champion-container-slides {
   width: 100%;
   height: 95vh;
   margin: 0 auto;
@@ -34,15 +34,14 @@
   bottom: 0;
   left: 0;
   background: rgba(5, 13, 22, 1);
-  mask-image: linear-gradient(to top, rgba(5,13,22,1) 5%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, rgba(5,13,22,1) 5%, transparent 100%);
+  mask-image: linear-gradient(to top, rgba(5,13,22,1) 8%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(5,13,22,1) 8%, transparent 100%);
 }
-
-
 
 .one-slide {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content:space-between;
   align-content: center;
   border-radius: 10px;
   background-size: cover;
@@ -50,56 +49,34 @@
   position: relative;
   z-index: 2;
   top: 50px;
+  width: 100%;
+  height: 70%;
 }
 
-.slide-img {
-  width: 55%;
-  height: 55%;
-}
-
-.arrow-left img {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  left: 32px;
-  height: 45px;
-  color: #fff;
-  z-index: 3;
+.arrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin: 0 1rem 0;
   cursor: pointer;
   filter: opacity(0%);
 }
 
-.arrow-right img {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  right: 32px;
+.arrow img {
   height: 45px;
-  color: #fff;
-  z-index: 3;
-  cursor: pointer;
-  filter: opacity(0%);
 }
 
-.arrow-left img:hover,
-.arrow-right img:hover {
+.arrow:hover{
   filter: opacity(100%);
 }
-
-/*.bg-image {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  z-index: 0;
-  filter: blur(10px) opacity(20%);
-}*/
 
 .dots-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
-  top: 10px;
+  top: 8px;
   z-index: 3;
 }
 
@@ -111,8 +88,20 @@
   filter: opacity(50%);
 }
 
+.active-dot {
+  font-size: 25px;
+  color: white;
+  filter: opacity(80%);
+}
+
 /* CHAMPIONS INFO*/
 /*color for bar levels: bright #08d7f7 and dark #023240*/
+
+.champion-half-bottom-section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
 
 .champion-info {
   margin: 0 auto;
@@ -126,7 +115,7 @@
   color: white;
 }
 
-.champion-header-border {
+.champion-info-container {
   border: 1px solid white;
   border-top: none;
   position: relative;
@@ -169,28 +158,57 @@
 
 .champion-details {
   display: flex;
-  margin: 0 40px 50px;
+  margin: 0 40px 50px 20px;
 }
 
 .champion-specifics {
   display: flex;
   width: 50%;
+  margin-right: 40px;
 }
 
 .champion-tags {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  justify-content: space-evenly; 
+}
+
+.champion-one-tag {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  
 }
 
 .champion-stats {
   width: 50%;
-  height: 200px;
-  position: relative;
   margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
+.champion-one-stat {
+  margin-bottom: 10px;
+}
+
+.champion-one-stat p {
+  margin-left: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+
 .champion-description {
+  display: flex;
+  align-items: center;
   width: 50%;
   padding-left: 60px;
+
 }
 
 .champion-details-divider {
@@ -220,7 +238,7 @@
   padding-right: 6%;
   opacity: 1;
   background-clip: content-box;
-  transform: skewX(-40deg);
+  transform: skewX(-45deg);
 }
 
 .second-level {
@@ -230,7 +248,7 @@
   padding-right: 5%;
   opacity: 1;
   background-clip: content-box;
-  transform: skewX(-40deg);
+  transform: skewX(-45deg);
 }
 
 .third-level {
@@ -240,7 +258,7 @@
   padding-right: 5%;
   opacity: 1;
   background-clip: content-box;
-  transform: skewX(-40deg);
+  transform: skewX(-45deg);
 }
 
 .forth-level {
@@ -250,7 +268,7 @@
   padding-right: 5%;
   opacity: 1;
   background-clip: content-box;
-  transform: skewX(-40deg);
+  transform: skewX(-45deg);
 }
 
 .fifth-level {
@@ -260,5 +278,33 @@
   padding-right: 5%;
   opacity: 1;
   background-clip: content-box;
-  transform: skewX(-40deg);
+  transform: skewX(-45deg);
 }
+
+.champion-previous-champion-button {
+  border: 1px solid white;
+  border-radius: 5px;
+  height: 40px;
+  margin: 0 0 50px 20px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+
+}
+
+.champion-next-champion-button {
+  border: 1px solid white;
+  border-radius: 5px;
+  height: 40px;
+  margin: 0 20px 50px 0;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+
+}
+
+.champion-previous-champion-button span, 
+.champion-next-champion-button span {
+  color: rgb(21, 3, 3);
+}
+
