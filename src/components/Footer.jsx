@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import facebookLogo from "../assets/footerLogoFacebook.png";
 import instagramLogo from "../assets/footerLogoInstagram.png";
 import linkedinLogo from "../assets/footerLogoLinkdin.png";
