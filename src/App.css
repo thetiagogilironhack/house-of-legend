@@ -118,6 +118,10 @@ button:hover {
   color: #b39556;
 }
 
+.navbar-text-div section a.active h3 {
+  color: #b39556;
+}
+
 .footer {
   color: white;
   background-color: #1d1d1d;
@@ -171,12 +175,12 @@ button:hover {
   pointer-events: none;
 }
 
-.filter-bar-champions button {
+.filter-bar button {
   margin: 0.8rem 2rem 0.8rem;
   background-color: transparent;
 }
 
-.filter-bar-champions button:hover {
+.filter-bar button:hover {
   color: #b39556;
   background-color: transparent;
 }
@@ -199,7 +203,8 @@ button:hover {
   align-items: center;
 }
 
-.filter-bar-hp button:hover {
+.filter-bar-hp button:hover,
+.active-tab {
   color: #b39556;
   background-color: transparent;
 }
@@ -215,21 +220,74 @@ button:hover {
 
 /* HOME PAGE */
 .home-page-section {
-  color: black;
   text-decoration: none;
-  background-color: rgba(194, 165, 110, 0.7);
-  width: 100vw;
-  height: 10rem;
+  width: 80vw;
+  height: 12rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
-  transition: background-color 0.5s;
+  overflow: hidden;
+  position: relative;
 }
 
-.home-page-section:hover {
-  background-color: rgb(194, 164, 110);
+#champions img {
+  height: 60rem;
+  margin: 500px -20px 0 -20px;
+  filter: opacity(30%) saturate(0);
+  transition-duration: 0.5s;
 }
+
+#champions h1 {
+  color: white;
+  position: absolute;
+  z-index: 8;
+  margin: 0;
+  text-align:center;
+}
+
+#champions img:hover {
+  filter: opacity(60%) saturate(1);
+}
+
+#items img {
+  height: 65rem;
+  margin: 340px -20px 0 -20px;
+  filter: opacity(30%) saturate(0);
+  transition-duration: 0.5s;
+}
+
+#items h1 {
+  color: white;
+  position: absolute;
+  z-index: 8;
+  margin: 0;
+  text-align:center;
+}
+
+#items img:hover {
+  filter: opacity(60%) saturate(1);
+}
+
+#builds img {
+  height: 65rem;
+  margin: 340px -20px 0 -20px;
+  filter: opacity(30%) saturate(0);
+  transition-duration: 0.5s;
+}
+
+#builds h1 {
+  color: white;
+  position: absolute;
+  z-index: 8;
+  margin: 0;
+  text-align:center;
+}
+
+#builds img:hover {
+  filter: opacity(60%) saturate(1);
+}
+
 
 /* CHAMPIONS PAGE */
 .champions-list {

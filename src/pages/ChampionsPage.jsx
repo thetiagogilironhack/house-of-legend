@@ -9,8 +9,8 @@ import slytherinLogo from "../assets/slytherin.png";
 const ChampionsPage = () => {
   const [champions, setChampions] = useState([]);
   const [search, setSearch] = useState("");
-  const [role, setRole] = useState(null);
-  const [house, setHouse] = useState(null);
+  const [selectedHouse, setSelectedHouse] = useState(null);
+  const [selectedRole, setSelectedRole] = useState(null);
 
   const fetchAllChampions = async () => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/champions`);
@@ -46,8 +46,8 @@ const ChampionsPage = () => {
   const filteredChampions = champions.filter(
     (champion) =>
       champion.name.toLowerCase().includes(search.toLowerCase()) &&
-      (!role || champion.tags.includes(role)) &&
-      (!house || champion.house.includes(house))
+      (!selectedHouse || champion.house.includes(selectedHouse)) &&
+      (!selectedRole || champion.tags.includes(selectedRole))
   );
 
   return (
@@ -62,14 +62,14 @@ const ChampionsPage = () => {
           />
         </section>
 
-        <section className="filter-bar-champions">
-          <button type="button" onClick={() => setRole(null)}>
+        <section>
+          <button type="button" onClick={() => setSelectedRole(null) || setSelectedHouse(null)} className={`${selectedRole  === null ? 'active-tab' : ''}`}>
             ALL
           </button>
 
           {roles.map((role) => {
             return (
-              <button type="button" key={role} onClick={() => setRole(role)} className="filter-bar-champions-button">
+              <button type="button" key={role} onClick={() => setSelectedRole(role)} className={`${selectedRole  === role ? 'active-tab' : ''}`}>
                 {role.toUpperCase()}
               </button>
             );
@@ -83,7 +83,8 @@ const ChampionsPage = () => {
             <button
               type="button"
               key={house.name}
-              onClick={() => setHouse(house.name)}
+              onClick={() => setSelectedHouse(house.name)}
+              className={`${selectedHouse  === house.name ? 'active-tab' : ''}`}
             >
               <img src={house.logo} />
               {house.name.toUpperCase()}

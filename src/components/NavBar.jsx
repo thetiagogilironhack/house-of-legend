@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import leagueIcon from "../assets/league-icon.png";
 
 const NavBar = () => {
@@ -13,21 +13,36 @@ const NavBar = () => {
 
         <div className="navbar-text-div">
           <section>
-            <Link to="/champions">
+            <NavLink
+              to="/champions"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
               <h3>CHAMPIONS</h3>
-            </Link>
+            </NavLink>
           </section>
 
           <section>
-            <Link to="/items">
+          <NavLink
+              to="/items"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
               <h3>ITEMS</h3>
-            </Link>
+            </NavLink>
           </section>
 
           <section>
-            <Link to="/builds">
+          <NavLink
+              to="/builds"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
               <h3>BUILDS</h3>
-            </Link>
+            </NavLink>
           </section>
         </div>
       </div>
