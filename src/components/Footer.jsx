@@ -33,9 +33,9 @@ const Footer = () => {
           <a href="https://www.instagram.com/thetiagogil/">
             <img src={instagramLogo} alt="Instagram" />
           </a>
-          {/* <a>
+          <a href="https://www.linkedin.com/in/tiago-de-almeida-gil-947687268/">
             <img src={linkedinLogo} alt="LinkedIn" />
-          </a> */}
+          </a> 
           <a href="https://github.com/thetiagogil">
             <img src={githubLogo} alt="GitHub" />
           </a>
