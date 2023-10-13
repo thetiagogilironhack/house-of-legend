@@ -33,6 +33,11 @@ button:hover {
   background-color: rgba(128, 101, 21, 0.5);
 }
 
+@font-face {
+  font-family: "HarryPotterFont";
+  src: url("./assets/MagicSchool.ttf") format("truetype");
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -100,6 +105,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1rem;
 }
 
 .navbar-text-div section h3 {
@@ -129,8 +135,6 @@ button:hover {
 
 /* SEARCH BAR && FILTERS*/
 .search-bar {
-  display: flex;
-  align-items: center;
   margin: 0.8rem 2rem 0.8rem;
 }
 .search-bar input {
@@ -167,14 +171,46 @@ button:hover {
   pointer-events: none;
 }
 
-.filter-bar button {
+.filter-bar-champions button {
   margin: 0.8rem 2rem 0.8rem;
   background-color: transparent;
 }
 
-.filter-bar button:hover {
+.filter-bar-champions button:hover {
   color: #b39556;
   background-color: transparent;
+}
+
+.filter-bar-hp {
+  color: rgb(100, 100, 100);
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.filter-bar-hp button {
+  margin: 0.8rem 2rem 0.8rem;
+  background-color: transparent;
+  font-family: "HarryPotterFont", sans-serif;
+  letter-spacing: 2px;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-bar-hp button:hover {
+  color: #b39556;
+  background-color: transparent;
+}
+
+.filter-bar-hp img {
+  width: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.filter-bar-items {
+  margin-right: 2rem;
 }
 
 /* HOME PAGE */
@@ -304,6 +340,11 @@ button:hover {
   width: 5rem;
 }
 
+.mybuilds-hide-button:hover,
+.mybuilds-create-button:hover {
+  background-color: rgba(128, 101, 21, 0.5);
+}
+
 .mybuilds-box {
   color: black;
   width: 75vw;
@@ -350,6 +391,7 @@ button:hover {
   float: right;
   width: 1.2rem;
 }
+
 
 /* MY BUILDS PAGE - BOX DISPLAY BUILD COMPONENT */
 .mybuilds-build-box {

@@ -44,10 +44,8 @@ const NewBuildPage = () => {
           "Content-type": "application/json",
         },
       });
-      console.log(response);
       if (response.ok) {
         const currentBuild = await response.json();
-        console.log(currentBuild);
         navigate("/builds");
       }
     } catch (error) {
@@ -185,7 +183,18 @@ const NewBuildPage = () => {
               <option value="">Select an item</option>
               {items.map((item) => {
                 return (
-                  <option value={item.name} key={item.id}>
+                  <option
+                    value={item.name}
+                    key={item.id}
+                    disabled={
+                      item3.name === item.name ||
+                      item4.name === item.name ||
+                      item5.name === item.name ||
+                      item6.name === item.name
+                        ? true
+                        : false
+                    }
+                  >
                     {item.name}
                   </option>
                 );
@@ -214,7 +223,14 @@ const NewBuildPage = () => {
                   <option
                     value={item.name}
                     key={item.id}
-                    disabled={item2.name === item.name ? true : false}
+                    disabled={
+                      item2.name === item.name ||
+                      item4.name === item.name ||
+                      item5.name === item.name ||
+                      item6.name === item.name
+                        ? true
+                        : false
+                    }
                   >
                     {item.name}
                   </option>
@@ -245,7 +261,10 @@ const NewBuildPage = () => {
                     value={item.name}
                     key={item.id}
                     disabled={
-                      item2.name === item.name || item3.name === item.name
+                      item2.name === item.name ||
+                      item3.name === item.name ||
+                      item5.name === item.name ||
+                      item6.name === item.name
                         ? true
                         : false
                     }
@@ -281,7 +300,8 @@ const NewBuildPage = () => {
                     disabled={
                       item2.name === item.name ||
                       item3.name === item.name ||
-                      item4.name === item.name
+                      item4.name === item.name ||
+                      item6.name === item.name
                         ? true
                         : false
                     }

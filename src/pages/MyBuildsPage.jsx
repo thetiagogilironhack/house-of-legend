@@ -99,16 +99,14 @@ const MyBuildsPage = () => {
     build.champion.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  console.log(builds);
-
   return (
     <div className="container">
       <h1>BUILDS</h1>
 
       <div className="mybuilds-div">
-        <div style={{width: "3rem"}} />
+        <div style={{ width: "3rem" }} />
         <div className="filter-bar">
-          <SearchBar name={"build"} search={search} setSearch={setSearch} />
+          <SearchBar name={"a build"} search={search} setSearch={setSearch} />
         </div>
 
         <div>
