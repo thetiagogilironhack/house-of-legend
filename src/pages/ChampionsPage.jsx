@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar";
 const ChampionsPage = () => {
   const [champions, setChampions] = useState([]);
   const [search, setSearch] = useState("");
-  const [role, setRole] = useState(null);
+  const [selectedRole, setSelectedRole] = useState(null);
 
   const fetchAllChampions = async () => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/champions`);
@@ -28,7 +28,7 @@ const ChampionsPage = () => {
   const filteredChampions = champions.filter(
     (champion) =>
       champion.name.toLowerCase().includes(search.toLowerCase()) &&
-      (!role || champion.tags.includes(role))
+      (!selectedRole || champion.tags.includes(selectedRole))
   );
 
   return (
@@ -40,12 +40,12 @@ const ChampionsPage = () => {
         </section>
 
         <section>
-          <button type="button" onClick={() => setRole(null)}>
+          <button type="button" onClick={() => setSelectedRole(null)} className={`${selectedRole  === null ? 'active-role' : ''}`}>
             ALL
           </button>
           {roles.map((role) => {
             return (
-              <button type="button" key={role} onClick={() => setRole(role)}>
+              <button type="button" key={role} onClick={() => setSelectedRole(role)} className={`${selectedRole  === role ? 'active-role' : ''}`}>
                 {role.toUpperCase()}
               </button>
             );
