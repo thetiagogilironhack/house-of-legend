@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import gryffindorLogo from "../assets/hpLogoGryffindor.png";
-import hufflepuffLogo from "../assets/hpLogohufflepuff.png";
-import ravenclawLogo from "../assets/hpLogoravenclaw.png";
-import slytherinLogo from "../assets/hpLogoslytherin.png";
+import hufflepuffLogo from "../assets/hpLogoHufflepuff.png";
+import ravenclawLogo from "../assets/hpLogoRavenclaw.png";
+import slytherinLogo from "../assets/hpLogoSlytherin.png";
 
 const ChampionsPage = () => {
   const [champions, setChampions] = useState([]);
