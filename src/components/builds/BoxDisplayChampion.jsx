@@ -18,17 +18,18 @@ const BoxDisplayChampion = ({
             alt={"Item IMG"}
           />
 
-          <h2>{championName} Builds</h2> 
+          <h2>{championName} Builds</h2>
         </section>
 
         <section>
-          <p>Number of Builds: {array.length}</p>
+          <p>Number of builds: {array.length}</p>
           <button type="button" onClick={() => setShowCheckbox(!showCheckbox)}>
             {showCheckbox ? "-" : "+"}
           </button>
         </section>
       </div>
 
+      {/* BUILD BOX MAP */}
       <div>
         {showCheckbox &&
           array.map((build, index) => (

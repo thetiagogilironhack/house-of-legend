@@ -10,12 +10,12 @@ const NewBuildPage = () => {
 
   const [title, setTitle] = useState("");
   const [champion, setChampion] = useState({ name: "", key: 0 });
-  const [item1, setItem1] = useState({ name: "", id: 0 });
-  const [item2, setItem2] = useState({ name: "", id: 0 });
-  const [item3, setItem3] = useState({ name: "", id: 0 });
-  const [item4, setItem4] = useState({ name: "", id: 0 });
-  const [item5, setItem5] = useState({ name: "", id: 0 });
-  const [item6, setItem6] = useState({ name: "", id: 0 });
+  const [item1, setItem1] = useState({ name: "", id: 0, price: 0 });
+  const [item2, setItem2] = useState({ name: "", id: 0, price: 0 });
+  const [item3, setItem3] = useState({ name: "", id: 0, price: 0 });
+  const [item4, setItem4] = useState({ name: "", id: 0, price: 0 });
+  const [item5, setItem5] = useState({ name: "", id: 0, price: 0 });
+  const [item6, setItem6] = useState({ name: "", id: 0, price: 0 });
   const [win] = useState(0);
   const [loss] = useState(0);
 
@@ -45,7 +45,6 @@ const NewBuildPage = () => {
         },
       });
       if (response.ok) {
-        const currentBuild = await response.json();
         navigate("/builds");
       }
     } catch (error) {
@@ -88,6 +87,9 @@ const NewBuildPage = () => {
     }
   };
 
+  const itemsSorted = items.sort((a, b) => a.name.localeCompare(b.name));
+  const bootsSorted = boots.sort((a, b) => a.name.localeCompare(b.name));
+
   useEffect(() => {
     fetchAllItems();
   }, []);
@@ -100,7 +102,7 @@ const NewBuildPage = () => {
         {/* CHAMPION LABEL */}
         <div className="newbuilds-champion-div">
           <label>
-            Champion
+            <h2>Champion</h2>
             <select
               value={champion.name}
               onChange={(event) => {
@@ -112,6 +114,7 @@ const NewBuildPage = () => {
                   key: champion.key,
                 });
               }}
+              className="newbuilds-champion-option"
               required
             >
               <option value="">Select a champion</option>
@@ -133,8 +136,9 @@ const NewBuildPage = () => {
             <input
               value={title}
               onChange={(event) => setTitle(event.target.value)}
+              placeholder={"Write a title"}
               required
-              maxLength={15}
+              maxLength={20}
             />
           </label>
 
@@ -150,12 +154,13 @@ const NewBuildPage = () => {
                 setItem1({
                   name: boot.name,
                   id: boot.id,
+                  price: boot.gold.total
                 });
               }}
               required
             >
               <option value="">Select an item</option>
-              {boots.map((item) => {
+              {bootsSorted.map((item) => {
                 return (
                   <option value={item.name} key={item.id}>
                     {item.name}
@@ -176,12 +181,13 @@ const NewBuildPage = () => {
                 setItem2({
                   name: item.name,
                   id: item.id,
+                  price: item.gold.total
                 });
               }}
               required
             >
               <option value="">Select an item</option>
-              {items.map((item) => {
+              {itemsSorted.map((item) => {
                 return (
                   <option
                     value={item.name}
@@ -213,12 +219,13 @@ const NewBuildPage = () => {
                 setItem3({
                   name: item.name,
                   id: item.id,
+                  price: item.gold.total
                 });
               }}
               required
             >
               <option value="">Select an item</option>
-              {items.map((item) => {
+              {itemsSorted.map((item) => {
                 return (
                   <option
                     value={item.name}
@@ -250,12 +257,13 @@ const NewBuildPage = () => {
                 setItem4({
                   name: item.name,
                   id: item.id,
+                  price: item.gold.total
                 });
               }}
               required
             >
               <option value="">Select an item</option>
-              {items.map((item) => {
+              {itemsSorted.map((item) => {
                 return (
                   <option
                     value={item.name}
@@ -287,12 +295,13 @@ const NewBuildPage = () => {
                 setItem5({
                   name: item.name,
                   id: item.id,
+                  price: item.gold.total
                 });
               }}
               required
             >
               <option value="">Select an item</option>
-              {items.map((item) => {
+              {itemsSorted.map((item) => {
                 return (
                   <option
                     value={item.name}
@@ -324,12 +333,13 @@ const NewBuildPage = () => {
                 setItem6({
                   name: item.name,
                   id: item.id,
+                  price: item.gold.total
                 });
               }}
               required
             >
               <option value="">Select an item</option>
-              {items.map((item) => {
+              {itemsSorted.map((item) => {
                 return (
                   <option
                     value={item.name}
@@ -352,8 +362,8 @@ const NewBuildPage = () => {
         </div>
 
         {/* SUBMIT BUTTON */}
-        <div>
-          <button type="submit">Create</button>
+        <div className="mybuilds-submit">
+          <button type="submit">CREATE BUILD</button>
         </div>
       </form>
     </div>

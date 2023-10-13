@@ -38,6 +38,7 @@ const MyBuildsPage = () => {
         }
       });
       setBuilds(buildsSorted);
+      console.log(buildsSorted)
     }
   };
 
@@ -103,10 +104,15 @@ const MyBuildsPage = () => {
     <div className="container">
       <h1>BUILDS</h1>
 
+      {/* FILTER */}
       <div className="mybuilds-div">
         <div style={{ width: "3rem" }} />
         <div className="filter-bar">
-          <SearchBar name={"a build"} search={search} setSearch={setSearch} />
+          <SearchBar
+            name={"a build"}
+            search={search}
+            setSearch={setSearch}
+          />
         </div>
 
         <div>
@@ -116,6 +122,7 @@ const MyBuildsPage = () => {
         </div>
       </div>
 
+      {/* CHAMPION BOX MAP */}
       <div className="mybuilds-box">
         {Object.keys(groupBuildsByChampion(filteredBuilds)).map(
           (championName) => {

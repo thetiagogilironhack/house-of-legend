@@ -30,17 +30,22 @@ const ItemsPage = () => {
     });
   });
 
+  const typesSorted = types.sort((a, b) => a.localeCompare(b));
+
   /* SEARCH BAR */
-  const filteredItems = items.filter(
-    (item) =>
-      item.name.toLowerCase().includes(search.toLowerCase()) &&
-      (!type || item.tags.includes(type))
-  );
+  const filteredItems = items
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .filter(
+      (item) =>
+        item.name.toLowerCase().includes(search.toLowerCase()) &&
+        (!type || item.tags.includes(type))
+    );
 
   return (
     <div className="container">
       <h1>ITEMS</h1>
 
+      {/* FILTER */}
       <div className="filter-bar">
         <section>
           <SearchBar name={"an item"} search={search} setSearch={setSearch} />
@@ -57,7 +62,7 @@ const ItemsPage = () => {
             required
           >
             <option value="">Select a type</option>
-            {types.map((type) => {
+            {typesSorted.map((type) => {
               return (
                 <option value={type} key={type}>
                   {type}
@@ -68,26 +73,21 @@ const ItemsPage = () => {
         </section>
       </div>
 
-      {/* LIST OF CHAMPIONS */}
+      {/* LIST OF ITEMS */}
       <ul className="items-list">
         {filteredItems.map((oneItem, index) => {
           return (
             <li key={`${oneItem.key}${index}`} className="items-box">
-              <div>
+              <section>
                 <img
                   src={`https://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${oneItem.id}.png`}
                   alt={oneItem.name}
                 />
-              </div>
+              </section>
 
-              <div>
+              <section className="items-box-text">
                 <h3>{oneItem.name}</h3>
-                <div className="items-tags-box">
-                  {oneItem.tags.map((oneTag) => {
-                    return <p key={oneTag}>{oneTag}</p>;
-                  })}
-                </div>
-              </div>
+              </section>
             </li>
           );
         })}

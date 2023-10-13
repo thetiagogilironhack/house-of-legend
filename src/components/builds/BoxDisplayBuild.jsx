@@ -90,28 +90,40 @@ const BuildDisplay = ({ build, fetchAllBuilds, updateBuild }) => {
       {/* --- HIDDEN DIV --- */}
       {showCheckbox && (
         <div className="mybuilds-build-hidden-div">
-          <div>
-            <p>Games played:</p>
+          <div className="mybuilds-build-hidden-div-flex">
+            <div className="mybuilds-build-hidden-checkbox">
+              <p>Total price: </p>
+              <p>
+                {build.item1.price +
+                  build.item2.price +
+                  build.item3.price +
+                  build.item4.price +
+                  build.item5.price +
+                  build.item6.price}
+                g
+              </p>
+            </div>
 
-            <section className="mybuilds-build-hidden-checkbox">
+            <div className="mybuilds-build-hidden-checkbox">
+              <p>Games played:</p>
               <p>{gamesPlayed} games</p>
-            </section>
-          </div>
+            </div>
 
-          <div>
-            <section className="mybuilds-build-hidden-checkbox">
-              <p>{build.win} wins</p>
-              <button onClick={() => updateBuild(build, "win", build.win)}>
-                +
-              </button>
-            </section>
+            <div>
+              <section className="mybuilds-build-hidden-counter">
+                <p>{build.win} wins</p>
+                <button onClick={() => updateBuild(build, "win", build.win)}>
+                  +
+                </button>
+              </section>
 
-            <section className="mybuilds-build-hidden-checkbox">
-              <p>{build.loss} losses</p>
-              <button onClick={() => updateBuild(build, "loss", build.loss)}>
-                +
-              </button>
-            </section>
+              <section className="mybuilds-build-hidden-counter">
+                <p>{build.loss} losses</p>
+                <button onClick={() => updateBuild(build, "loss", build.loss)}>
+                  +
+                </button>
+              </section>
+            </div>
           </div>
         </div>
       )}
